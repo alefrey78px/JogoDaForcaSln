@@ -119,7 +119,7 @@ namespace JogoDaForca
             {
                 palavraSecreta = conteudoLinha[0].ToUpper();
                 _dica = conteudoLinha[1].ToUpper();
-                _quantidadeDeLetras = ContarLetras(palavraSecreta);
+                ContarLetras(palavraSecreta);
             }
             else
             {
@@ -134,19 +134,17 @@ namespace JogoDaForca
         }
 
         // Conta as letras da palavra sorteada
-        private int ContarLetras(string texto)
+        private void ContarLetras(string texto)
         {
-            int totalLetras = 0;
 
             foreach (char caractere in texto)
             {
                 if (char.IsLetter(caractere))
                 {
-                    totalLetras++;
+                    _quantidadeDeLetras++;
                 }
             }
-
-            return totalLetras;
+           
         }
 
 
