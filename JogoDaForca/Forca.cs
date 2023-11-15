@@ -2,7 +2,6 @@
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 
 namespace JogoDaForca
 {
@@ -12,7 +11,7 @@ namespace JogoDaForca
         private String palavraMascarada;
         private int _tentativas;
         private String _dica;
-        private int _qtdLetras;
+        private int _quantidadeDeLetras;
         private static string caminhoArquivo = "palavras.txt";
 
 
@@ -35,7 +34,7 @@ namespace JogoDaForca
 
         public int QuantidadeLetras
         {
-            get { return _qtdLetras; }
+            get { return _quantidadeDeLetras; }
         }
 
         public string PalavraMascarada
@@ -70,6 +69,11 @@ namespace JogoDaForca
         }
 
 
+        // Le a linha sorteada do arquivo palavras.txt e separa onde tem o ;
+        // atribuindo a array conteudoLinha o que foi lido
+        // Exemplo:
+        // linha: abacate;fruta verde
+        // conteudoLinha = abacate, fruta verde
         private static string[] LerLinhaSepararPorPontoEVirgula(string caminhoArquivo, int numeroLinha)
         {
             string[] conteudoLinha = null;
@@ -96,11 +100,18 @@ namespace JogoDaForca
 
             return conteudoLinha;
         }
+
+
+        // Faz o sorteio da palavra
         public String SortearPalavra()
         {
 
+            // Conta quantas linhas tem o arquivo
             int numeroLinhas = ContarLinhas(caminhoArquivo);
+            
+            // Gera um numero aleatorio de 0 ao numero de linhas do arquivo
             int numeroLinhaDesejada = GerarNumeroRandomico(numeroLinhas);
+
             string[] conteudoLinha = LerLinhaSepararPorPontoEVirgula(caminhoArquivo, numeroLinhaDesejada);
 
 
@@ -108,18 +119,23 @@ namespace JogoDaForca
             {
                 palavraSecreta = conteudoLinha[0].ToUpper();
                 _dica = conteudoLinha[1].ToUpper();
-                _qtdLetras = ContarLetras(palavraSecreta);
+                _quantidadeDeLetras = ContarLetras(palavraSecreta);
             }
             else
             {
                 throw new Exception($"A linha {numeroLinhaDesejada} não pôde ser lida ou não contém o formato esperado.");
             }
 
-            palavraMascarada = new string('_', palavraSecreta.Length);
+            // Atribui um caractere - em palavraMascarada para representar
+            // cada letra da palavraSecreta, ex.:
+            // palavraSecreta   = ABACATE
+            // palavraMascarada = -------
+            palavraMascarada = new string('-', palavraSecreta.Length);
             
             return palavraMascarada;
         }
 
+        // Conta as letras da palavra sorteada
         private int ContarLetras(string texto)
         {
             int totalLetras = 0;

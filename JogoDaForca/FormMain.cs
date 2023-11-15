@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 
@@ -65,9 +66,9 @@ namespace JogoDaForca
                 btn.Enabled = false;
 
                 if (acertou)
-                    btn.BackColor = System.Drawing.Color.Blue;
+                    btn.BackColor = Color.Blue;
                 else
-                    btn.BackColor = System.Drawing.Color.Red;
+                    btn.BackColor = Color.Red;
 
             }
 
@@ -98,33 +99,15 @@ namespace JogoDaForca
 
         private void HabilitarBotoes(bool estado)
         {
-            btnA.Enabled = estado;
-            btnB.Enabled = estado;
-            btnC.Enabled = estado;
-            btnCedilha.Enabled = estado;
-            btnD.Enabled = estado;
-            btnE.Enabled = estado;
-            btnF.Enabled = estado;
-            btnG.Enabled = estado;
-            btnH.Enabled = estado;
-            btnI.Enabled = estado;
-            btnJ.Enabled = estado;
-            btnK.Enabled = estado;
-            btnL.Enabled = estado;
-            btnM.Enabled = estado;
-            btnN.Enabled = estado;
-            btnO.Enabled = estado;
-            btnP.Enabled = estado;
-            btnQ.Enabled = estado;
-            btnR.Enabled = estado;
-            btnS.Enabled = estado;
-            btnT.Enabled = estado;
-            btnU.Enabled = estado;
-            btnV.Enabled = estado;
-            btnW.Enabled = estado;
-            btnX.Enabled = estado;
-            btnY.Enabled = estado;
-            btnZ.Enabled = estado;
+            foreach (Control control in this.groupBox1.Controls)
+            {
+                if (control is Button)
+                {
+                    Button botao = (Button)control;
+                    botao.Enabled = estado;
+                    botao.BackColor = SystemColors.Control;
+                }
+            }
         }
 
         private void btnNovoJogo_Click(object sender, EventArgs e)
