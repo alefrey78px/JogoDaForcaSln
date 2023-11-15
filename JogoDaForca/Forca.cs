@@ -1,47 +1,149 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace JogoDaForca
 {
     class Forca
     {
-
         private String palavraSecreta;
         private String palavraMascarada;
-        int tentativas = 7;
+        private int _tentativas;
+        private String _dica;
+        private int _qtdLetras;
+        private static string caminhoArquivo = "palavras.txt";
 
-        public int Tentativas {
-            get { return tentativas; }
 
+        public int Tentativas
+        {
+            get { return _tentativas; }
+            set { _tentativas = value; }
 
-            }
+        }
 
+        public String Palavra
+        {
+            get { return palavraSecreta; }
+        }
+
+        public String Dica
+        {
+            get { return _dica; }
+        }
+
+        public int QuantidadeLetras
+        {
+            get { return _qtdLetras; }
+        }
+
+        public string PalavraMascarada
+        {
+            get { return palavraMascarada; }
+        }
 
         public Forca() { }
 
-        public String SorteiaPalavra()
+        private static int ContarLinhas(string caminhoArquivo)
         {
-            palavraSecreta = "ABACAXI";
+            try
+            {
+                string[] linhas = File.ReadAllLines(caminhoArquivo);
+                return linhas.Length;
+            }
+            catch (FileNotFoundException)
+            {
+                throw new Exception($"Arquivo não encontrado: {caminhoArquivo}");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Ocorreu um erro ao ler o arquivo: {ex.Message}");
+            }
+        }
+
+
+        private int GerarNumeroRandomico(int maximo)
+        {
+            Random random = new Random();
+            return random.Next(maximo);
+        }
+
+
+        private static string[] LerLinhaSepararPorPontoEVirgula(string caminhoArquivo, int numeroLinha)
+        {
+            string[] conteudoLinha = null;
+
+            try
+            {
+                // Lê a linha específica do arquivo
+                string linha = File.ReadLines(caminhoArquivo).Skip(numeroLinha - 1).FirstOrDefault();
+
+                if (linha != null)
+                {
+                    // Divide a linha usando ponto e vírgula como delimitador
+                    conteudoLinha = linha.Split(';');
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                throw new Exception($"Arquivo não encontrado: {caminhoArquivo}");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Ocorreu um erro ao ler o arquivo: {ex.Message}");
+            }
+
+            return conteudoLinha;
+        }
+        public String SortearPalavra()
+        {
+
+            int numeroLinhas = ContarLinhas(caminhoArquivo);
+            int numeroLinhaDesejada = GerarNumeroRandomico(numeroLinhas);
+            string[] conteudoLinha = LerLinhaSepararPorPontoEVirgula(caminhoArquivo, numeroLinhaDesejada);
+
+
+            if (conteudoLinha != null && conteudoLinha.Length == 2)
+            {
+                palavraSecreta = conteudoLinha[0].ToUpper();
+                _dica = conteudoLinha[1].ToUpper();
+                _qtdLetras = ContarLetras(palavraSecreta);
+            }
+            else
+            {
+                throw new Exception($"A linha {numeroLinhaDesejada} não pôde ser lida ou não contém o formato esperado.");
+            }
+
             palavraMascarada = new string('_', palavraSecreta.Length);
+            
             return palavraMascarada;
-
         }
 
-        public String Exibe()
+        private int ContarLetras(string texto)
         {
-            return palavraMascarada;
+            int totalLetras = 0;
+
+            foreach (char caractere in texto)
+            {
+                if (char.IsLetter(caractere))
+                {
+                    totalLetras++;
+                }
+            }
+
+            return totalLetras;
         }
+
 
         public bool Venceu()
         {
-            if (string.Equals(palavraSecreta, palavraMascarada) && (tentativas != 0))
+            if (string.Equals(palavraSecreta, palavraMascarada) && (_tentativas != 0))
             {
                 return true;
             }
-            else if (tentativas == 0) {
+            else if (_tentativas == 0)
+            {
                 GameOver();
             }
 
@@ -53,9 +155,9 @@ namespace JogoDaForca
             return true;
         }
 
-        public void VerificaChute(char letra)
+        public bool VerificaChute(char letra)
         {
-           bool temALetra = palavraSecreta.Contains(letra);
+            bool temALetra = palavraSecreta.Contains(letra);
 
             if (temALetra)
             {
@@ -74,21 +176,18 @@ namespace JogoDaForca
                 }
 
                 palavraMascarada = novaStringMascarada.ToString();
+                return true;
+
 
             }
-            if (!temALetra)
+            //if (!temALetra)
+            else
             {
-                tentativas -= 1;
-
+                _tentativas -= 1;
+                return false;
             }
 
         }
 
-        public void MarcaLetrasAcertadas()
-        {
-
-        }
-
-        
     }
 }

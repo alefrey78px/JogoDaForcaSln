@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -16,13 +9,25 @@ namespace JogoDaForca
     {
         Forca forca = new Forca();
 
+
         public FormMain()
         {
             InitializeComponent();
-           
+
+            HabilitarBotoes(false);
+
+            groupBox1.Visible = false;
+            groupBox2.Visible = false;
+
+            AtribuiLetras();
+        }
+
+        private void AtribuiLetras()
+        {
             btnA.Click += Letra_Click;
             btnB.Click += Letra_Click;
             btnC.Click += Letra_Click;
+            btnCedilha.Click += Letra_Click;
             btnD.Click += Letra_Click;
             btnE.Click += Letra_Click;
             btnF.Click += Letra_Click;
@@ -46,20 +51,6 @@ namespace JogoDaForca
             btnX.Click += Letra_Click;
             btnY.Click += Letra_Click;
             btnZ.Click += Letra_Click;
-
-            forca.SorteiaPalavra();
-            labelPalavra.Text = forca.SorteiaPalavra();
-
-        }
-
-        private void labelPalavra_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnA_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void Letra_Click(object sender, EventArgs e)
@@ -68,31 +59,100 @@ namespace JogoDaForca
             if (btn != null)
             {
                 // Chamar a função e passar a letra como parâmetro
-                forca.VerificaChute(btn.Text[0]);
+                bool acertou = forca.VerificaChute(btn.Text[0]);
 
                 // Desabilitar o botão
                 btn.Enabled = false;
+
+                if (acertou)
+                    btn.BackColor = System.Drawing.Color.Blue;
+                else
+                    btn.BackColor = System.Drawing.Color.Red;
+
             }
 
-            labelPalavra.Text = forca.Exibe();
-            lblTentativasRestantes.Text = forca.Tentativas.ToString();
-            
+            labelPalavra.Text = forca.PalavraMascarada;
+
+            lblTentativasRestantes.Text = "Tentativas: "
+                + forca.Tentativas.ToString();
+
             if (forca.Venceu())
             {
-                labelVenceu.Text = "Venceu!";
-                groupBox1.Visible = false;
+                MessageBox.Show("A palavra secreta era: "
+                    + forca.Palavra, "VENCEDOR!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                HabilitarBotoes(false);
             }
 
             if (forca.Tentativas == 0)
             {
-                groupBox1.Visible = false;
-                groupBox2.Visible = false;
-                labelVenceu.Text = "Game Over!";
+                HabilitarBotoes(false);
+
+                MessageBox.Show("A palavra secreta era: "
+                    + forca.Palavra, "GAME OVER!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
 
+        private void HabilitarBotoes(bool estado)
+        {
+            btnA.Enabled = estado;
+            btnB.Enabled = estado;
+            btnC.Enabled = estado;
+            btnCedilha.Enabled = estado;
+            btnD.Enabled = estado;
+            btnE.Enabled = estado;
+            btnF.Enabled = estado;
+            btnG.Enabled = estado;
+            btnH.Enabled = estado;
+            btnI.Enabled = estado;
+            btnJ.Enabled = estado;
+            btnK.Enabled = estado;
+            btnL.Enabled = estado;
+            btnM.Enabled = estado;
+            btnN.Enabled = estado;
+            btnO.Enabled = estado;
+            btnP.Enabled = estado;
+            btnQ.Enabled = estado;
+            btnR.Enabled = estado;
+            btnS.Enabled = estado;
+            btnT.Enabled = estado;
+            btnU.Enabled = estado;
+            btnV.Enabled = estado;
+            btnW.Enabled = estado;
+            btnX.Enabled = estado;
+            btnY.Enabled = estado;
+            btnZ.Enabled = estado;
+        }
 
+        private void btnNovoJogo_Click(object sender, EventArgs e)
+        {
+            forca.SortearPalavra();
 
+            groupBox1.Visible = true;
+            groupBox2.Visible = true;
+
+            labelPalavra.Text = forca.SortearPalavra();
+
+            lblDica.Text = "Dica: " + forca.Dica;
+
+            lblQtdLetras.Text = "A palavra tem "
+                + forca.QuantidadeLetras
+                + " letra(s).";
+
+            forca.Tentativas = 7;
+
+            lblTentativasRestantes.Text = "Tentativas: "
+                + forca.Tentativas.ToString();
+
+            HabilitarBotoes(true);
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

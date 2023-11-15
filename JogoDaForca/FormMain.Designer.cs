@@ -57,9 +57,12 @@
             this.btnB = new System.Windows.Forms.Button();
             this.btnA = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblQtdLetras = new System.Windows.Forms.Label();
+            this.lblDica = new System.Windows.Forms.Label();
             this.lblTentativasRestantes = new System.Windows.Forms.Label();
-            this.labelVenceu = new System.Windows.Forms.Label();
+            this.btnNovoJogo = new System.Windows.Forms.Button();
+            this.btnCedilha = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -73,10 +76,10 @@
             this.labelPalavra.Size = new System.Drawing.Size(559, 129);
             this.labelPalavra.TabIndex = 0;
             this.labelPalavra.Text = "PALAVRA";
-            this.labelPalavra.Click += new System.EventHandler(this.labelPalavra_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnCedilha);
             this.groupBox1.Controls.Add(this.btnZ);
             this.groupBox1.Controls.Add(this.btnY);
             this.groupBox1.Controls.Add(this.btnX);
@@ -369,52 +372,83 @@
             this.btnA.TabIndex = 0;
             this.btnA.Text = "A";
             this.btnA.UseVisualStyleBackColor = true;
-            this.btnA.Click += new System.EventHandler(this.btnA_Click);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblQtdLetras);
+            this.groupBox2.Controls.Add(this.lblDica);
             this.groupBox2.Controls.Add(this.lblTentativasRestantes);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(261, 191);
+            this.groupBox2.Location = new System.Drawing.Point(273, 186);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(635, 210);
+            this.groupBox2.Size = new System.Drawing.Size(615, 210);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Estatísticas:";
             // 
-            // label4
+            // lblQtdLetras
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 59);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 16);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Tentativas restantes:";
+            this.lblQtdLetras.AutoSize = true;
+            this.lblQtdLetras.Location = new System.Drawing.Point(23, 63);
+            this.lblQtdLetras.Name = "lblQtdLetras";
+            this.lblQtdLetras.Size = new System.Drawing.Size(44, 16);
+            this.lblQtdLetras.TabIndex = 12;
+            this.lblQtdLetras.Text = "label3";
+            // 
+            // lblDica
+            // 
+            this.lblDica.AutoSize = true;
+            this.lblDica.Location = new System.Drawing.Point(23, 47);
+            this.lblDica.Name = "lblDica";
+            this.lblDica.Size = new System.Drawing.Size(44, 16);
+            this.lblDica.TabIndex = 10;
+            this.lblDica.Text = "label2";
             // 
             // lblTentativasRestantes
             // 
             this.lblTentativasRestantes.AutoSize = true;
-            this.lblTentativasRestantes.Location = new System.Drawing.Point(147, 59);
+            this.lblTentativasRestantes.Location = new System.Drawing.Point(23, 28);
             this.lblTentativasRestantes.Name = "lblTentativasRestantes";
-            this.lblTentativasRestantes.Size = new System.Drawing.Size(44, 16);
+            this.lblTentativasRestantes.Size = new System.Drawing.Size(14, 16);
             this.lblTentativasRestantes.TabIndex = 8;
-            this.lblTentativasRestantes.Text = "label5";
+            this.lblTentativasRestantes.Text = "7";
             // 
-            // labelVenceu
+            // btnNovoJogo
             // 
-            this.labelVenceu.AutoSize = true;
-            this.labelVenceu.Location = new System.Drawing.Point(934, 119);
-            this.labelVenceu.Name = "labelVenceu";
-            this.labelVenceu.Size = new System.Drawing.Size(44, 16);
-            this.labelVenceu.TabIndex = 3;
-            this.labelVenceu.Text = "label5";
+            this.btnNovoJogo.Location = new System.Drawing.Point(74, 168);
+            this.btnNovoJogo.Name = "btnNovoJogo";
+            this.btnNovoJogo.Size = new System.Drawing.Size(92, 23);
+            this.btnNovoJogo.TabIndex = 3;
+            this.btnNovoJogo.Text = "Novo Jogo";
+            this.btnNovoJogo.UseVisualStyleBackColor = true;
+            this.btnNovoJogo.Click += new System.EventHandler(this.btnNovoJogo_Click);
+            // 
+            // btnCedilha
+            // 
+            this.btnCedilha.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCedilha.Location = new System.Drawing.Point(512, 125);
+            this.btnCedilha.Name = "btnCedilha";
+            this.btnCedilha.Size = new System.Drawing.Size(49, 46);
+            this.btnCedilha.TabIndex = 26;
+            this.btnCedilha.Text = "Ç";
+            this.btnCedilha.UseVisualStyleBackColor = true;
+            // 
+            // btnSair
+            // 
+            this.btnSair.Location = new System.Drawing.Point(74, 211);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(92, 23);
+            this.btnSair.TabIndex = 4;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1166, 683);
-            this.Controls.Add(this.labelVenceu);
+            this.ClientSize = new System.Drawing.Size(1166, 686);
+            this.Controls.Add(this.btnSair);
+            this.Controls.Add(this.btnNovoJogo);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.labelPalavra);
@@ -459,9 +493,12 @@
         private System.Windows.Forms.Button btnC;
         private System.Windows.Forms.Button btnB;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblTentativasRestantes;
-        private System.Windows.Forms.Label labelVenceu;
+        private System.Windows.Forms.Label lblDica;
+        private System.Windows.Forms.Button btnNovoJogo;
+        private System.Windows.Forms.Label lblQtdLetras;
+        private System.Windows.Forms.Button btnCedilha;
+        private System.Windows.Forms.Button btnSair;
     }
 }
 
