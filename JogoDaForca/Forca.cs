@@ -103,7 +103,7 @@ namespace JogoDaForca
 
 
         // Faz o sorteio da palavra
-        public String SortearPalavra()
+        public void Sortear()
         {
 
             // Conta quantas linhas tem o arquivo
@@ -131,8 +131,6 @@ namespace JogoDaForca
             // palavraSecreta   = ABACATE
             // palavraMascarada = -------
             palavraMascarada = new string('-', palavraSecreta.Length);
-            
-            return palavraMascarada;
         }
 
         // Conta as letras da palavra sorteada

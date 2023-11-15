@@ -25,6 +25,7 @@ namespace JogoDaForca
 
         private void AtribuiLetras()
         {
+
             btnA.Click += Letra_Click;
             btnB.Click += Letra_Click;
             btnC.Click += Letra_Click;
@@ -112,12 +113,12 @@ namespace JogoDaForca
 
         private void btnNovoJogo_Click(object sender, EventArgs e)
         {
-            forca.SortearPalavra();
+            forca.Sortear();
 
             groupBox1.Visible = true;
             groupBox2.Visible = true;
 
-            labelPalavra.Text = forca.SortearPalavra();
+            labelPalavra.Text = forca.PalavraMascarada;
 
             lblDica.Text = "Dica: " + forca.Dica;
 
