@@ -26,33 +26,16 @@ namespace JogoDaForca
         private void AtribuiLetras()
         {
 
-            btnA.Click += Letra_Click;
-            btnB.Click += Letra_Click;
-            btnC.Click += Letra_Click;
-            btnCedilha.Click += Letra_Click;
-            btnD.Click += Letra_Click;
-            btnE.Click += Letra_Click;
-            btnF.Click += Letra_Click;
-            btnG.Click += Letra_Click;
-            btnH.Click += Letra_Click;
-            btnI.Click += Letra_Click;
-            btnJ.Click += Letra_Click;
-            btnK.Click += Letra_Click;
-            btnL.Click += Letra_Click;
-            btnM.Click += Letra_Click;
-            btnN.Click += Letra_Click;
-            btnO.Click += Letra_Click;
-            btnP.Click += Letra_Click;
-            btnQ.Click += Letra_Click;
-            btnR.Click += Letra_Click;
-            btnS.Click += Letra_Click;
-            btnT.Click += Letra_Click;
-            btnU.Click += Letra_Click;
-            btnV.Click += Letra_Click;
-            btnW.Click += Letra_Click;
-            btnX.Click += Letra_Click;
-            btnY.Click += Letra_Click;
-            btnZ.Click += Letra_Click;
+            foreach (Control control in this.groupBox1.Controls)
+            {
+                if (control is Button)
+                {
+                    Button botao = (Button)control;
+                    botao.Click += Letra_Click;
+                }
+            }
+
+            
         }
 
         private void Letra_Click(object sender, EventArgs e)
@@ -113,7 +96,7 @@ namespace JogoDaForca
 
         private void btnNovoJogo_Click(object sender, EventArgs e)
         {
-            forca.Sortear();
+            forca.InicioDoJogo();
 
             groupBox1.Visible = true;
             groupBox2.Visible = true;

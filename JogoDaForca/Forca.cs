@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -7,12 +6,12 @@ namespace JogoDaForca
 {
     class Forca
     {
-        private String palavraSecreta;
-        private String palavraMascarada;
+        private String _palavra;
+        private String _palavraMascarada;
         private int _tentativas;
         private String _dica;
         private int _quantidadeDeLetras;
-        private static string caminhoArquivo = "palavras.txt";
+        
 
 
         public int Tentativas
@@ -24,7 +23,7 @@ namespace JogoDaForca
 
         public String Palavra
         {
-            get { return palavraSecreta; }
+            get { return _palavra; }
         }
 
         public String Dica
@@ -39,155 +38,83 @@ namespace JogoDaForca
 
         public string PalavraMascarada
         {
-            get { return palavraMascarada; }
+            get { return _palavraMascarada; }
         }
 
         public Forca() { }
 
-        private static int ContarLinhas(string caminhoArquivo)
+        public void InicioDoJogo()
         {
-            try
-            {
-                string[] linhas = File.ReadAllLines(caminhoArquivo);
-                return linhas.Length;
-            }
-            catch (FileNotFoundException)
-            {
-                throw new Exception($"Arquivo não encontrado: {caminhoArquivo}");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Ocorreu um erro ao ler o arquivo: {ex.Message}");
-            }
-        }
+            SortearPalavra.Sortear();
+            _palavra = SortearPalavra.Palavra;
+            _dica = SortearPalavra.Dica;
 
-
-        private int GerarNumeroRandomico(int maximo)
-        {
-            Random random = new Random();
-            return random.Next(maximo);
-        }
-
-
-        // Le a linha sorteada do arquivo palavras.txt e separa onde tem o ;
-        // atribuindo a array conteudoLinha o que foi lido
-        // Exemplo:
-        // linha: abacate;fruta verde
-        // conteudoLinha = abacate, fruta verde
-        private static string[] LerLinhaSepararPorPontoEVirgula(string caminhoArquivo, int numeroLinha)
-        {
-            string[] conteudoLinha = null;
-
-            try
-            {
-                // Lê a linha específica do arquivo
-                string linha = File.ReadLines(caminhoArquivo).Skip(numeroLinha - 1).FirstOrDefault();
-
-                if (linha != null)
-                {
-                    // Divide a linha usando ponto e vírgula como delimitador
-                    conteudoLinha = linha.Split(';');
-                }
-            }
-            catch (FileNotFoundException)
-            {
-                throw new Exception($"Arquivo não encontrado: {caminhoArquivo}");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Ocorreu um erro ao ler o arquivo: {ex.Message}");
-            }
-
-            return conteudoLinha;
-        }
-
-
-        // Faz o sorteio da palavra
-        public void Sortear()
-        {
-
-            // Conta quantas linhas tem o arquivo
-            int numeroLinhas = ContarLinhas(caminhoArquivo);
-            
-            // Gera um numero aleatorio de 0 ao numero de linhas do arquivo
-            int numeroLinhaDesejada = GerarNumeroRandomico(numeroLinhas);
-
-            string[] conteudoLinha = LerLinhaSepararPorPontoEVirgula(caminhoArquivo, numeroLinhaDesejada);
-
-
-            if (conteudoLinha != null && conteudoLinha.Length == 2)
-            {
-                palavraSecreta = conteudoLinha[0].ToUpper();
-                _dica = conteudoLinha[1].ToUpper();
-                ContarLetras(palavraSecreta);
-            }
-            else
-            {
-                throw new Exception($"A linha {numeroLinhaDesejada} não pôde ser lida ou não contém o formato esperado.");
-            }
+            ContarLetras(_palavra);
 
             // Atribui um caractere - em palavraMascarada para representar
             // cada letra da palavraSecreta, ex.:
             // palavraSecreta   = ABACATE
             // palavraMascarada = -------
-            palavraMascarada = new string('-', palavraSecreta.Length);
+            _palavraMascarada = new string('-', _palavra.Length);
         }
 
         // Conta as letras da palavra sorteada
         private void ContarLetras(string texto)
         {
+            _quantidadeDeLetras = 0;
+            _quantidadeDeLetras = texto.Count(char.IsLetter);
 
-            foreach (char caractere in texto)
-            {
-                if (char.IsLetter(caractere))
-                {
-                    _quantidadeDeLetras++;
-                }
-            }
+
+            //foreach (char caractere in texto)
+            //{
+//                if (char.IsLetter(caractere))
+  //                  _quantidadeDeLetras++;
+    //        }
            
         }
 
 
         public bool Venceu()
         {
-            if (string.Equals(palavraSecreta, palavraMascarada) && (_tentativas != 0))
+            if (string.Equals(_palavra, _palavraMascarada))
             {
                 return true;
             }
-            else if (_tentativas == 0)
+            /*else if (_tentativas == 0)
             {
                 GameOver();
-            }
+            }*/
 
             return false;
         }
 
-        public bool GameOver()
+        /*public bool GameOver()
         {
             return true;
         }
+        */
 
         public bool VerificaChute(char letra)
         {
-            bool temALetra = palavraSecreta.Contains(letra);
+            bool temALetra = _palavra.Contains(letra);
 
             if (temALetra)
             {
 
                 char letraChutada = letra;
 
-                StringBuilder novaStringMascarada = new StringBuilder(palavraMascarada);
+                StringBuilder novaStringMascarada = new StringBuilder(_palavraMascarada);
 
-                for (int i = 0; i < palavraSecreta.Length; i++)
+                for (int i = 0; i < _palavra.Length; i++)
                 {
-                    if (palavraSecreta[i] == letraChutada)
+                    if (_palavra[i] == letraChutada)
                     {
                         // Atualiza a letra mascarada na mesma posição que está na string original
                         novaStringMascarada[i] = letraChutada;
                     }
                 }
 
-                palavraMascarada = novaStringMascarada.ToString();
+                _palavraMascarada = novaStringMascarada.ToString();
                 return true;
 
 
