@@ -69,24 +69,19 @@ namespace JogoDaForca
             return false;
         }
 
-        
+
         public bool VerificaChute(char letra)
         {
-            bool temALetra = _palavra.Contains(letra);
+            // Normaliza a letra digitada para remover acentos
+            string letraNormalizada = letra.ToString().Normalize(NormalizationForm.FormD);
+
+            // Normaliza a palavra e verifica se ela contém a letra normalizada
+            bool temALetra = _palavra.Normalize(NormalizationForm.FormD).Contains(letraNormalizada);
 
             if (temALetra)
             {
-                char letraChutada = letra;
-
-                StringBuilder novaStringMascarada = new StringBuilder(_palavraMascarada);
-
-                for (int i = 0; i < _palavra.Length; i++)
-                {
-                    if (_palavra[i] == letraChutada)
-                        novaStringMascarada[i] = letraChutada;
-                }
-
-                _palavraMascarada = novaStringMascarada.ToString();
+                // Atualiza a palavra mascarada considerando a normalização
+                _palavraMascarada = AtualizarPalavraMascarada(letra);
 
                 return true;
             }
@@ -95,9 +90,29 @@ namespace JogoDaForca
                 _tentativas -= 1;
                 return false;
             }
-
         }
-        
+
+        private string AtualizarPalavraMascarada(char letra)
+        {
+            char letraChutada = letra;
+            StringBuilder novaStringMascarada = new StringBuilder(_palavraMascarada);
+
+            for (int i = 0; i < _palavra.Length; i++)
+            {
+                // Normaliza a letra atual da palavra antes de comparar
+                char letraAtualNormalizada = _palavra[i].ToString().Normalize(NormalizationForm.FormD)[0];
+
+                if (letraAtualNormalizada == letraChutada)
+                {
+                    // Atualiza a letra mascarada na mesma posição que está na string original
+                    novaStringMascarada[i] = _palavra[i];
+                }
+            }
+
+            return novaStringMascarada.ToString();
+        }
+
+
 
     }
 }

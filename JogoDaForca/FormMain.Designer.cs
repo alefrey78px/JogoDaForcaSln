@@ -31,7 +31,6 @@
             this.labelPalavra = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnHifen = new System.Windows.Forms.Button();
-            this.btnCedilha = new System.Windows.Forms.Button();
             this.btnZ = new System.Windows.Forms.Button();
             this.btnY = new System.Windows.Forms.Button();
             this.btnX = new System.Windows.Forms.Button();
@@ -81,7 +80,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnHifen);
-            this.groupBox1.Controls.Add(this.btnCedilha);
             this.groupBox1.Controls.Add(this.btnZ);
             this.groupBox1.Controls.Add(this.btnY);
             this.groupBox1.Controls.Add(this.btnX);
@@ -124,16 +122,6 @@
             this.btnHifen.TabIndex = 27;
             this.btnHifen.Text = "-";
             this.btnHifen.UseVisualStyleBackColor = true;
-            // 
-            // btnCedilha
-            // 
-            this.btnCedilha.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCedilha.Location = new System.Drawing.Point(539, 86);
-            this.btnCedilha.Name = "btnCedilha";
-            this.btnCedilha.Size = new System.Drawing.Size(49, 46);
-            this.btnCedilha.TabIndex = 26;
-            this.btnCedilha.Text = "Ç";
-            this.btnCedilha.UseVisualStyleBackColor = true;
             // 
             // btnZ
             // 
@@ -509,7 +497,6 @@
         private System.Windows.Forms.Label lblDica;
         private System.Windows.Forms.Button btnNovoJogo;
         private System.Windows.Forms.Label lblQtdLetras;
-        private System.Windows.Forms.Button btnCedilha;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnHifen;
     }
