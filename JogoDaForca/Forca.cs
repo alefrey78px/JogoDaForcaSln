@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
+using System.Globalization;
+
 
 namespace JogoDaForca
 {
@@ -45,62 +47,35 @@ namespace JogoDaForca
 
         public void InicioDoJogo()
         {
-            SortearPalavra.Sortear();
-            _palavra = SortearPalavra.Palavra;
-            _dica = SortearPalavra.Dica;
+            SortearPalavra.Sortear(); // faz o sorteio da palavra e dica
+            _palavra = SortearPalavra.Palavra; // recebe a palavra
+            _dica = SortearPalavra.Dica; // recebe a dica
 
-            ContarLetras(_palavra);
+            _quantidadeDeLetras = _palavra.Count(char.IsLetter); // conta as letras da palavra
 
-            // Atribui um caractere - em palavraMascarada para representar
-            // cada letra da palavraSecreta, ex.:
-            // palavraSecreta   = ABACATE
-            // palavraMascarada = -------
+            // essa variavel é uma cópia "mascarada" com "-" da _palavra
+            // serve para exibição na tela
             _palavraMascarada = new string('-', _palavra.Length);
-        }
-
-        // Conta as letras da palavra sorteada
-        private void ContarLetras(string texto)
-        {
-            _quantidadeDeLetras = 0;
-            _quantidadeDeLetras = texto.Count(char.IsLetter);
-
-
-            //foreach (char caractere in texto)
-            //{
-//                if (char.IsLetter(caractere))
-  //                  _quantidadeDeLetras++;
-    //        }
-           
         }
 
 
         public bool Venceu()
         {
+            // quando a palavra mascaracada for igual a palavra
+            // o jogador venceu
             if (string.Equals(_palavra, _palavraMascarada))
-            {
                 return true;
-            }
-            /*else if (_tentativas == 0)
-            {
-                GameOver();
-            }*/
 
             return false;
         }
 
-        /*public bool GameOver()
-        {
-            return true;
-        }
-        */
-
+        
         public bool VerificaChute(char letra)
         {
             bool temALetra = _palavra.Contains(letra);
 
             if (temALetra)
             {
-
                 char letraChutada = letra;
 
                 StringBuilder novaStringMascarada = new StringBuilder(_palavraMascarada);
@@ -108,18 +83,13 @@ namespace JogoDaForca
                 for (int i = 0; i < _palavra.Length; i++)
                 {
                     if (_palavra[i] == letraChutada)
-                    {
-                        // Atualiza a letra mascarada na mesma posição que está na string original
                         novaStringMascarada[i] = letraChutada;
-                    }
                 }
 
                 _palavraMascarada = novaStringMascarada.ToString();
+
                 return true;
-
-
             }
-            //if (!temALetra)
             else
             {
                 _tentativas -= 1;
@@ -127,6 +97,7 @@ namespace JogoDaForca
             }
 
         }
+        
 
     }
 }

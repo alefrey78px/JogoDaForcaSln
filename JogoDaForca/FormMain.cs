@@ -15,7 +15,7 @@ namespace JogoDaForca
         {
             InitializeComponent();
 
-            HabilitarBotoes(false);
+            ResetarTeclado(false);
 
             groupBox1.Visible = false;
             groupBox2.Visible = false;
@@ -67,12 +67,12 @@ namespace JogoDaForca
                     + forca.Palavra, "VENCEDOR!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                HabilitarBotoes(false);
+                ResetarTeclado(false);
             }
 
             if (forca.Tentativas == 0)
             {
-                HabilitarBotoes(false);
+                ResetarTeclado(false);
 
                 MessageBox.Show("A palavra secreta era: "
                     + forca.Palavra, "GAME OVER!",
@@ -81,7 +81,7 @@ namespace JogoDaForca
 
         }
 
-        private void HabilitarBotoes(bool estado)
+        private void ResetarTeclado(bool estado)
         {
             foreach (Control control in this.groupBox1.Controls)
             {
@@ -114,12 +114,14 @@ namespace JogoDaForca
             lblTentativasRestantes.Text = "Tentativas: "
                 + forca.Tentativas.ToString();
 
-            HabilitarBotoes(true);
+            ResetarTeclado(true);
         }
 
         private void btnSair_Click(object sender, EventArgs e)
         {
             Close();
         }
+
+
     }
 }

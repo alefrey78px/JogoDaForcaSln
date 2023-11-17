@@ -30,6 +30,7 @@
         {
             this.labelPalavra = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnHifen = new System.Windows.Forms.Button();
             this.btnCedilha = new System.Windows.Forms.Button();
             this.btnZ = new System.Windows.Forms.Button();
             this.btnY = new System.Windows.Forms.Button();
@@ -79,6 +80,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnHifen);
             this.groupBox1.Controls.Add(this.btnCedilha);
             this.groupBox1.Controls.Add(this.btnZ);
             this.groupBox1.Controls.Add(this.btnY);
@@ -108,10 +110,20 @@
             this.groupBox1.Controls.Add(this.btnA);
             this.groupBox1.Location = new System.Drawing.Point(274, 446);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(614, 200);
+            this.groupBox1.Size = new System.Drawing.Size(614, 203);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selecione a letra:";
+            // 
+            // btnHifen
+            // 
+            this.btnHifen.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHifen.Location = new System.Drawing.Point(539, 138);
+            this.btnHifen.Name = "btnHifen";
+            this.btnHifen.Size = new System.Drawing.Size(49, 46);
+            this.btnHifen.TabIndex = 27;
+            this.btnHifen.Text = "-";
+            this.btnHifen.UseVisualStyleBackColor = true;
             // 
             // btnCedilha
             // 
@@ -499,6 +511,7 @@
         private System.Windows.Forms.Label lblQtdLetras;
         private System.Windows.Forms.Button btnCedilha;
         private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Button btnHifen;
     }
 }
 
