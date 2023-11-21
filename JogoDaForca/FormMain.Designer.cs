@@ -58,9 +58,9 @@
             this.btnB = new System.Windows.Forms.Button();
             this.btnA = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblQtdLetras = new System.Windows.Forms.Label();
-            this.lblDica = new System.Windows.Forms.Label();
-            this.lblTentativasRestantes = new System.Windows.Forms.Label();
+            this.labelQuantasLetras = new System.Windows.Forms.Label();
+            this.labelDica = new System.Windows.Forms.Label();
+            this.labelTentativasRestantes = new System.Windows.Forms.Label();
             this.btnNovoJogo = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -385,9 +385,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.lblQtdLetras);
-            this.groupBox2.Controls.Add(this.lblDica);
-            this.groupBox2.Controls.Add(this.lblTentativasRestantes);
+            this.groupBox2.Controls.Add(this.labelQuantasLetras);
+            this.groupBox2.Controls.Add(this.labelDica);
+            this.groupBox2.Controls.Add(this.labelTentativasRestantes);
             this.groupBox2.Location = new System.Drawing.Point(273, 186);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(615, 210);
@@ -395,32 +395,32 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Estatísticas:";
             // 
-            // lblQtdLetras
+            // labelQuantasLetras
             // 
-            this.lblQtdLetras.AutoSize = true;
-            this.lblQtdLetras.Location = new System.Drawing.Point(23, 63);
-            this.lblQtdLetras.Name = "lblQtdLetras";
-            this.lblQtdLetras.Size = new System.Drawing.Size(44, 16);
-            this.lblQtdLetras.TabIndex = 12;
-            this.lblQtdLetras.Text = "label3";
+            this.labelQuantasLetras.AutoSize = true;
+            this.labelQuantasLetras.Location = new System.Drawing.Point(23, 63);
+            this.labelQuantasLetras.Name = "labelQuantasLetras";
+            this.labelQuantasLetras.Size = new System.Drawing.Size(132, 16);
+            this.labelQuantasLetras.TabIndex = 12;
+            this.labelQuantasLetras.Text = "Quantidade de letras";
             // 
-            // lblDica
+            // labelDica
             // 
-            this.lblDica.AutoSize = true;
-            this.lblDica.Location = new System.Drawing.Point(23, 47);
-            this.lblDica.Name = "lblDica";
-            this.lblDica.Size = new System.Drawing.Size(44, 16);
-            this.lblDica.TabIndex = 10;
-            this.lblDica.Text = "label2";
+            this.labelDica.AutoSize = true;
+            this.labelDica.Location = new System.Drawing.Point(23, 47);
+            this.labelDica.Name = "labelDica";
+            this.labelDica.Size = new System.Drawing.Size(35, 16);
+            this.labelDica.TabIndex = 10;
+            this.labelDica.Text = "Dica";
             // 
-            // lblTentativasRestantes
+            // labelTentativasRestantes
             // 
-            this.lblTentativasRestantes.AutoSize = true;
-            this.lblTentativasRestantes.Location = new System.Drawing.Point(23, 28);
-            this.lblTentativasRestantes.Name = "lblTentativasRestantes";
-            this.lblTentativasRestantes.Size = new System.Drawing.Size(14, 16);
-            this.lblTentativasRestantes.TabIndex = 8;
-            this.lblTentativasRestantes.Text = "7";
+            this.labelTentativasRestantes.AutoSize = true;
+            this.labelTentativasRestantes.Location = new System.Drawing.Point(23, 28);
+            this.labelTentativasRestantes.Name = "labelTentativasRestantes";
+            this.labelTentativasRestantes.Size = new System.Drawing.Size(134, 16);
+            this.labelTentativasRestantes.TabIndex = 8;
+            this.labelTentativasRestantes.Text = "Tentativas Restantes";
             // 
             // btnNovoJogo
             // 
@@ -493,10 +493,10 @@
         private System.Windows.Forms.Button btnC;
         private System.Windows.Forms.Button btnB;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label lblTentativasRestantes;
-        private System.Windows.Forms.Label lblDica;
+        private System.Windows.Forms.Label labelTentativasRestantes;
+        private System.Windows.Forms.Label labelDica;
         private System.Windows.Forms.Button btnNovoJogo;
-        private System.Windows.Forms.Label lblQtdLetras;
+        private System.Windows.Forms.Label labelQuantasLetras;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnHifen;
     }

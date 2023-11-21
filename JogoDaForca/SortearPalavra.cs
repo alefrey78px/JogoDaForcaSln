@@ -97,12 +97,10 @@ namespace JogoDaForca
 
             string[] conteudoLinha = LerLinhaSepararPorPontoEVirgula(caminhoArquivo, numeroLinhaDesejada);
 
-
             if (conteudoLinha != null && conteudoLinha.Length == 2)
             {
                 _palavra = conteudoLinha[0].ToUpper();
                 _dica = conteudoLinha[1].ToUpper();
-                
             }
             else
             {

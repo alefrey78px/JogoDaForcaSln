@@ -15,7 +15,6 @@ namespace JogoDaForca
         private int _quantidadeDeLetras;
         
 
-
         public int Tentativas
         {
             get { return _tentativas; }

@@ -28,20 +28,17 @@ namespace JogoDaForca
 
             foreach (Control control in this.groupBox1.Controls)
             {
-                if (control is Button)
+                if (control is Button botao)
                 {
-                    Button botao = (Button)control;
                     botao.Click += Letra_Click;
                 }
             }
 
-            
         }
 
         private void Letra_Click(object sender, EventArgs e)
         {
-            Button btn = sender as Button;
-            if (btn != null)
+            if (sender is Button btn)
             {
                 // Chamar a função e passar a letra como parâmetro
                 bool acertou = forca.VerificaChute(btn.Text[0]);
@@ -58,7 +55,7 @@ namespace JogoDaForca
 
             labelPalavra.Text = forca.PalavraMascarada;
 
-            lblTentativasRestantes.Text = "Tentativas: "
+            labelTentativasRestantes.Text = "Tentativas: "
                 + forca.Tentativas.ToString();
 
             if (forca.Venceu())
@@ -85,9 +82,8 @@ namespace JogoDaForca
         {
             foreach (Control control in this.groupBox1.Controls)
             {
-                if (control is Button)
+                if (control is Button botao)
                 {
-                    Button botao = (Button)control;
                     botao.Enabled = estado;
                     botao.BackColor = SystemColors.Control;
                 }
@@ -103,15 +99,15 @@ namespace JogoDaForca
 
             labelPalavra.Text = forca.PalavraMascarada;
 
-            lblDica.Text = "Dica: " + forca.Dica;
+            labelDica.Text = "Dica: " + forca.Dica;
 
-            lblQtdLetras.Text = "A palavra tem "
+            labelQuantasLetras.Text = "A palavra tem "
                 + forca.QuantidadeLetras
                 + " letra(s).";
 
             forca.Tentativas = 7;
 
-            lblTentativasRestantes.Text = "Tentativas: "
+            labelTentativasRestantes.Text = "Tentativas: "
                 + forca.Tentativas.ToString();
 
             ResetarTeclado(true);
