@@ -63,8 +63,10 @@
             this.labelTentativasRestantes = new System.Windows.Forms.Label();
             this.btnNovoJogo = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelPalavra
@@ -106,7 +108,7 @@
             this.groupBox1.Controls.Add(this.btnC);
             this.groupBox1.Controls.Add(this.btnB);
             this.groupBox1.Controls.Add(this.btnA);
-            this.groupBox1.Location = new System.Drawing.Point(274, 446);
+            this.groupBox1.Location = new System.Drawing.Point(74, 357);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(614, 203);
             this.groupBox1.TabIndex = 1;
@@ -388,9 +390,9 @@
             this.groupBox2.Controls.Add(this.labelQuantasLetras);
             this.groupBox2.Controls.Add(this.labelDica);
             this.groupBox2.Controls.Add(this.labelTentativasRestantes);
-            this.groupBox2.Location = new System.Drawing.Point(273, 186);
+            this.groupBox2.Location = new System.Drawing.Point(74, 260);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(615, 210);
+            this.groupBox2.Size = new System.Drawing.Size(615, 91);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Estatísticas:";
@@ -442,11 +444,20 @@
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(695, 162);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(477, 485);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1202, 767);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnNovoJogo);
             this.Controls.Add(this.groupBox2);
@@ -457,6 +468,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -499,6 +511,7 @@
         private System.Windows.Forms.Label labelQuantasLetras;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnHifen;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

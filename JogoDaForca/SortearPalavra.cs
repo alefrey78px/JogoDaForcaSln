@@ -10,7 +10,7 @@ namespace JogoDaForca
     {
         private static String _palavra;
         private static String _dica;
-        private static readonly string caminhoArquivo = "palavras.txt";
+        private static readonly string caminhoArquivo = "db/palavras.txt";
         private static readonly Random random = new Random();
 
         public static string Palavra

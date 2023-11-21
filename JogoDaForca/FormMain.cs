@@ -54,6 +54,8 @@ namespace JogoDaForca
             labelTentativasRestantes.Text = "Tentativas: "
                 + forca.Tentativas.ToString();
 
+            AnimacaoEnforcamento(forca.Tentativas);
+
             if (forca.Venceu())
             {
                 MessageBox.Show("A palavra secreta era: "
@@ -85,17 +87,23 @@ namespace JogoDaForca
                 }
             }
 
+            pictureBox1.Visible = estado;
             labelPalavra.Visible = estado;
             groupBox1.Visible = estado;
             groupBox2.Visible = estado;
         }
 
+        private void AnimacaoEnforcamento(int chances)
+        {
+            pictureBox1.Image = Image.FromFile("db/forca"+chances+".png");
+        }
+
+
         private void BtnNovoJogo_Click(object sender, EventArgs e)
         {
             forca.InicioDoJogo();
 
-            groupBox1.Visible = true;
-            groupBox2.Visible = true;
+            forca.Tentativas = 7;
 
             labelPalavra.Text = forca.PalavraMascarada;
 
@@ -105,10 +113,10 @@ namespace JogoDaForca
                 + forca.QuantidadeLetras
                 + " letra(s).";
 
-            forca.Tentativas = 7;
-
             labelTentativasRestantes.Text = "Tentativas: "
                 + forca.Tentativas.ToString();
+
+            pictureBox1.Image = Image.FromFile("db/forca7.png");
 
             HabilitarControles(true);
         }

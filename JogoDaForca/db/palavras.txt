@@ -1,0 +1,59 @@
+abacaxi;fruta acida
+carro;meio de transporte
+pera;fruta, começa com a letra P
+açúcar;adoça o cafe
+gato;animal independente
+cachorro;animal fiel
+andorinha;animal, voa, gosta de caçar insetos a tardinha
+sabiá da praia;animal, voa, invocado
+banana;fruta amarela, rica em potassio
+computador;dispositivo eletrônico para processamento de dados
+elefante;animal de grande porte, tromba
+bicicleta;veiculo de duas rodas acionado por pedal
+morango;fruta vermelha, associada a sobremesas
+cadeira;objeto para sentar
+avião;meio de transporte aereo
+eletricidade;forma de energia
+ocelote;felino de pequeno porte
+maracujá;fruta tropical, casca dura
+travesseiro;usado para dormir
+leão;animal selvagem, rei da selva
+tigela;recipiente para comida
+jardim;area com plantas e flores
+notícia;informação recente
+telefone;dispositivo para comunicação
+piano;instrumento musical
+chocolate;doce feito de cacau
+tecnologia;conjunto de conhecimentos para criar objetos
+futebol;esporte com uma bola
+montanha;elevação natural da superficie terrestre
+sorvete;sobremesa gelada
+livro;obra literaria
+floresta;area com muitas árvores
+lua;satélite natural da Terra
+escola;instituição de ensino
+aventura;jornada emocionante
+viagem;jornada para um lugar distante
+verão;estação do ano
+inverno;estação do ano
+primavera;estação do ano
+outono;estação do ano
+comida;alimento
+filme;obra cinematografica
+computação;area de estudo sobre computadores
+quimica;ciência dos elementos
+matemática;ciência dos números
+família;grupo de pessoas relacionadas
+cachoeira;queda d'agua natural
+pintura;arte de criar imagens com tintas
+oceanografia;estudo dos oceanos
+geografia;estudo da superficie terrestre
+biologia;ciência da vida
+astronomia;estudo dos astros
+dinossauro;animal pre-histórico
+guitarra;instrumento musical de cordas
+fotografia;arte de capturar imagens
+televisão;meio de comunicação visual
+internet;rede mundial de computadores
+astronauta;viajante espacial
+esportes;atividades fisicas competitivas
