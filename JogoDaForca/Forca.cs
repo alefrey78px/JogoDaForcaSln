@@ -55,7 +55,8 @@ namespace JogoDaForca
 
             // essa variavel é uma cópia "mascarada" com "-" da _palavra
             // serve para exibição na tela
-            _palavraMascarada = new string('-', _palavra.Length);
+            //_palavraMascarada = new string('-', _palavra.Length);
+            _palavraMascarada = new string(_palavra.Select(c => c == ' ' ? ' ' : '-').ToArray());
         }
 
 

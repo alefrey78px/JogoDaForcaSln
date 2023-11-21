@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
 
@@ -42,8 +43,7 @@ namespace JogoDaForca
 
         private static int GerarNumeroAleatorio(int maximo)
         {
-            //Random random = new Random();
-            return random.Next(maximo);
+            return random.Next(maximo);         
         }
 
 
