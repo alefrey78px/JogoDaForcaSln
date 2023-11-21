@@ -8,20 +8,18 @@ namespace JogoDaForca
 {
     public partial class FormMain : Form
     {
-        Forca forca = new Forca();
+        readonly Forca forca = new Forca();
 
 
         public FormMain()
         {
             InitializeComponent();
 
-            ResetarTeclado(false);
-
-            groupBox1.Visible = false;
-            groupBox2.Visible = false;
+            HabilitarControles(false);
 
             AtribuiLetras();
         }
+
 
         private void AtribuiLetras()
         {
@@ -29,9 +27,7 @@ namespace JogoDaForca
             foreach (Control control in this.groupBox1.Controls)
             {
                 if (control is Button botao)
-                {
                     botao.Click += Letra_Click;
-                }
             }
 
         }
@@ -64,21 +60,21 @@ namespace JogoDaForca
                     + forca.Palavra, "VENCEDOR!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                ResetarTeclado(false);
+                HabilitarControles(false);
             }
 
             if (forca.Tentativas == 0)
             {
-                ResetarTeclado(false);
-
                 MessageBox.Show("A palavra secreta era: "
                     + forca.Palavra, "GAME OVER!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                HabilitarControles(false);
             }
 
         }
 
-        private void ResetarTeclado(bool estado)
+        private void HabilitarControles(bool estado)
         {
             foreach (Control control in this.groupBox1.Controls)
             {
@@ -88,9 +84,13 @@ namespace JogoDaForca
                     botao.BackColor = SystemColors.Control;
                 }
             }
+
+            labelPalavra.Visible = estado;
+            groupBox1.Visible = estado;
+            groupBox2.Visible = estado;
         }
 
-        private void btnNovoJogo_Click(object sender, EventArgs e)
+        private void BtnNovoJogo_Click(object sender, EventArgs e)
         {
             forca.InicioDoJogo();
 
@@ -110,14 +110,13 @@ namespace JogoDaForca
             labelTentativasRestantes.Text = "Tentativas: "
                 + forca.Tentativas.ToString();
 
-            ResetarTeclado(true);
+            HabilitarControles(true);
         }
 
         private void btnSair_Click(object sender, EventArgs e)
         {
             Close();
         }
-
 
     }
 }

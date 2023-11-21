@@ -430,7 +430,7 @@
             this.btnNovoJogo.TabIndex = 3;
             this.btnNovoJogo.Text = "Novo Jogo";
             this.btnNovoJogo.UseVisualStyleBackColor = true;
-            this.btnNovoJogo.Click += new System.EventHandler(this.btnNovoJogo_Click);
+            this.btnNovoJogo.Click += new System.EventHandler(this.BtnNovoJogo_Click);
             // 
             // btnSair
             // 
