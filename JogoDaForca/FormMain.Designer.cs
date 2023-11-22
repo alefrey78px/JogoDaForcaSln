@@ -73,7 +73,7 @@
             // 
             this.labelPalavra.AutoSize = true;
             this.labelPalavra.Font = new System.Drawing.Font("Courier New", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPalavra.Location = new System.Drawing.Point(251, 30);
+            this.labelPalavra.Location = new System.Drawing.Point(24, 529);
             this.labelPalavra.Name = "labelPalavra";
             this.labelPalavra.Size = new System.Drawing.Size(559, 129);
             this.labelPalavra.TabIndex = 0;
@@ -108,7 +108,7 @@
             this.groupBox1.Controls.Add(this.btnC);
             this.groupBox1.Controls.Add(this.btnB);
             this.groupBox1.Controls.Add(this.btnA);
-            this.groupBox1.Location = new System.Drawing.Point(74, 357);
+            this.groupBox1.Location = new System.Drawing.Point(540, 54);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(614, 203);
             this.groupBox1.TabIndex = 1;
@@ -390,9 +390,9 @@
             this.groupBox2.Controls.Add(this.labelQuantasLetras);
             this.groupBox2.Controls.Add(this.labelDica);
             this.groupBox2.Controls.Add(this.labelTentativasRestantes);
-            this.groupBox2.Location = new System.Drawing.Point(74, 260);
+            this.groupBox2.Location = new System.Drawing.Point(12, 651);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(615, 91);
+            this.groupBox2.Size = new System.Drawing.Size(1155, 104);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Estatísticas:";
@@ -400,33 +400,36 @@
             // labelQuantasLetras
             // 
             this.labelQuantasLetras.AutoSize = true;
-            this.labelQuantasLetras.Location = new System.Drawing.Point(23, 63);
+            this.labelQuantasLetras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelQuantasLetras.Location = new System.Drawing.Point(297, 28);
             this.labelQuantasLetras.Name = "labelQuantasLetras";
-            this.labelQuantasLetras.Size = new System.Drawing.Size(132, 16);
+            this.labelQuantasLetras.Size = new System.Drawing.Size(193, 25);
             this.labelQuantasLetras.TabIndex = 12;
             this.labelQuantasLetras.Text = "Quantidade de letras";
             // 
             // labelDica
             // 
             this.labelDica.AutoSize = true;
-            this.labelDica.Location = new System.Drawing.Point(23, 47);
+            this.labelDica.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDica.Location = new System.Drawing.Point(23, 68);
             this.labelDica.Name = "labelDica";
-            this.labelDica.Size = new System.Drawing.Size(35, 16);
+            this.labelDica.Size = new System.Drawing.Size(51, 25);
             this.labelDica.TabIndex = 10;
             this.labelDica.Text = "Dica";
             // 
             // labelTentativasRestantes
             // 
             this.labelTentativasRestantes.AutoSize = true;
+            this.labelTentativasRestantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTentativasRestantes.Location = new System.Drawing.Point(23, 28);
             this.labelTentativasRestantes.Name = "labelTentativasRestantes";
-            this.labelTentativasRestantes.Size = new System.Drawing.Size(134, 16);
+            this.labelTentativasRestantes.Size = new System.Drawing.Size(195, 25);
             this.labelTentativasRestantes.TabIndex = 8;
             this.labelTentativasRestantes.Text = "Tentativas Restantes";
             // 
             // btnNovoJogo
             // 
-            this.btnNovoJogo.Location = new System.Drawing.Point(74, 168);
+            this.btnNovoJogo.Location = new System.Drawing.Point(12, 12);
             this.btnNovoJogo.Name = "btnNovoJogo";
             this.btnNovoJogo.Size = new System.Drawing.Size(92, 23);
             this.btnNovoJogo.TabIndex = 3;
@@ -436,7 +439,7 @@
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(74, 211);
+            this.btnSair.Location = new System.Drawing.Point(110, 12);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(92, 23);
             this.btnSair.TabIndex = 4;
@@ -446,9 +449,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(695, 162);
+            this.pictureBox1.Location = new System.Drawing.Point(25, 54);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(477, 485);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 

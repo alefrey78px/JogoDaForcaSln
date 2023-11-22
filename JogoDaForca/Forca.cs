@@ -18,8 +18,6 @@ namespace JogoDaForca
         public int Tentativas
         {
             get { return _tentativas; }
-            set { _tentativas = value; }
-
         }
 
         public String Palavra
@@ -49,12 +47,12 @@ namespace JogoDaForca
             SortearPalavra.Sortear(); // faz o sorteio da palavra e dica
             _palavra = SortearPalavra.Palavra; // recebe a palavra
             _dica = SortearPalavra.Dica; // recebe a dica
+            _tentativas = 7;
 
             _quantidadeDeLetras = _palavra.Count(char.IsLetter); // conta as letras da palavra
 
             // essa variavel é uma cópia "mascarada" com "-" da _palavra
             // serve para exibição na tela
-            //_palavraMascarada = new string('-', _palavra.Length);
             _palavraMascarada = new string(_palavra.Select(c => c == ' ' ? ' ' : '-').ToArray());
         }
 

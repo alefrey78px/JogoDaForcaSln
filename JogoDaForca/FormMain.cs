@@ -103,15 +103,12 @@ namespace JogoDaForca
         {
             forca.InicioDoJogo();
 
-            forca.Tentativas = 7;
-
             labelPalavra.Text = forca.PalavraMascarada;
 
             labelDica.Text = "Dica: " + forca.Dica;
 
-            labelQuantasLetras.Text = "A palavra tem "
-                + forca.QuantidadeLetras
-                + " letra(s).";
+            labelQuantasLetras.Text = "Letras: "
+                + forca.QuantidadeLetras;
 
             labelTentativasRestantes.Text = "Tentativas: "
                 + forca.Tentativas.ToString();
