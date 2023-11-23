@@ -58,6 +58,9 @@ namespace JogoDaForca
 
             if (forca.Venceu())
             {
+
+                pictureBox1.Image = Image.FromFile("db/trofeu.png");
+
                 MessageBox.Show("A palavra secreta era: "
                     + forca.Palavra, "VENCEDOR!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);

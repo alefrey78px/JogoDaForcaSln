@@ -1,59 +1,212 @@
-abacaxi;fruta acida
-carro;meio de transporte
-pera;fruta, começa com a letra P
-açúcar;adoça o cafe
-gato;animal independente
-cachorro;animal fiel
-andorinha;animal, voa, gosta de caçar insetos a tardinha
-sabiá da praia;animal, voa, invocado
-banana;fruta amarela, rica em potassio
-computador;dispositivo eletrônico para processamento de dados
-elefante;animal de grande porte, tromba
-bicicleta;veiculo de duas rodas acionado por pedal
-morango;fruta vermelha, associada a sobremesas
-cadeira;objeto para sentar
-avião;meio de transporte aereo
-eletricidade;forma de energia
-ocelote;felino de pequeno porte
-maracujá;fruta tropical, casca dura
-travesseiro;usado para dormir
-leão;animal selvagem, rei da selva
-tigela;recipiente para comida
-jardim;area com plantas e flores
-notícia;informação recente
-telefone;dispositivo para comunicação
-piano;instrumento musical
-chocolate;doce feito de cacau
-tecnologia;conjunto de conhecimentos para criar objetos
-futebol;esporte com uma bola
-montanha;elevação natural da superficie terrestre
-sorvete;sobremesa gelada
-livro;obra literaria
-floresta;area com muitas árvores
-lua;satélite natural da Terra
-escola;instituição de ensino
-aventura;jornada emocionante
-viagem;jornada para um lugar distante
-verão;estação do ano
-inverno;estação do ano
-primavera;estação do ano
-outono;estação do ano
-comida;alimento
-filme;obra cinematografica
-computação;area de estudo sobre computadores
-quimica;ciência dos elementos
-matemática;ciência dos números
-família;grupo de pessoas relacionadas
-cachoeira;queda d'agua natural
-pintura;arte de criar imagens com tintas
-oceanografia;estudo dos oceanos
-geografia;estudo da superficie terrestre
-biologia;ciência da vida
-astronomia;estudo dos astros
-dinossauro;animal pre-histórico
-guitarra;instrumento musical de cordas
-fotografia;arte de capturar imagens
-televisão;meio de comunicação visual
-internet;rede mundial de computadores
-astronauta;viajante espacial
-esportes;atividades fisicas competitivas
+maçã;fruta vermelha e suculenta.
+fotografia;imagem capturada por uma câmera.
+montanha;elevação natural da terra.
+futebol;esporte jogado com uma bola e pés.
+girassol;planta de flor grande que segue o sol.
+televisão;meio de comunicação para transmitir programas.
+bicicleta;veículo de duas rodas movido por pedal.
+jardim;área cultivada com flores e plantas.
+violão;instrumento musical de cordas.
+astronauta;viajante espacial.
+abelha;inseto que produz mel.
+relógio;dispositivo para medir o tempo.
+cachorro;animal de estimação leal.
+biblioteca;local que abriga livros e recursos de leitura.
+arco-íris;fenômeno óptico com cores do espectro.
+chocolate;doce feito a partir de cacau e açúcar.
+xícara;utensílio para bebidas quentes.
+oceano;extensão de água salgada que cobre grande parte da Terra.
+pianista;pessoa que toca piano.
+elefante;mamífero terrestre de grande porte com presas longas.
+teatro;local para apresentações ao vivo.
+avião;meio de transporte que voa no ar.
+cereja;fruta pequena e vermelha.
+lua;satélite natural da Terra.
+vela;fonte de luz com pavio.
+computador;dispositivo eletrônico para processamento de dados.
+telefone;dispositivo de comunicação por voz.
+universidade;instituição de ensino superior.
+nuvem;conjunto de partículas de água ou gelo no céu.
+cinema;local para exibição de filmes.
+almoço;refeição principal do dia.
+sapato;calçado para os pés.
+música;expressão artística sonora.
+helicóptero;aeronave com hélices rotativas.
+cavalo;animal de quatro patas usado para montaria.
+pirata;saqueador dos mares.
+caneta;instrumento de escrita.
+vôlei;esporte de equipe jogado com uma bola.
+laranja;fruta cítrica.
+espelho;superfície refletora de vidro.
+foguete;veículo espacial impulsionado por motores.
+igreja;local de culto religioso.
+janela;abertura em uma parede para luz e ventilação.
+tigre;felino selvagem de listras.
+escola;instituição de ensino.
+dança;expressão artística do movimento do corpo.
+deserto;região seca com pouca vegetação.
+pizza;prato de massa com coberturas.
+circo;espetáculo com artistas e animais.
+zoológico;parque que exibe animais.
+inverno;estação mais fria do ano.
+chapéu;acessório de cabeça.
+fogão;aparelho para cozinhar alimentos.
+ovo;produto alimentício da galinha.
+rádio;meio de comunicação por ondas.
+árvore;planta de grande porte com tronco.
+ônibus;veículo de transporte público.
+chocolate;doce feito a partir de cacau e açúcar.
+piscina;área de água para natação.
+astronauta;viajante espacial.
+pássaro;ave com penas e asas.
+avião;meio de transporte que voa no ar.
+torre;estrutura alta e vertical.
+guitarra;instrumento musical de cordas.
+gorila;mamífero primata.
+tatuagem;arte corporal permanente.
+café;bebida estimulante.
+dente;peça dura na boca.
+jornal;meio de comunicação impresso.
+teatro;local para apresentações ao vivo.
+bicicleta;veículo de duas rodas movido por pedal.
+elefante;mamífero terrestre de grande porte com presas longas.
+igreja;local de culto religioso.
+floresta;área extensa de árvores e vegetação.
+enfermeiro;profissional de saúde.
+vaso;recipiente para plantas.
+xampu;produto de cuidado capilar.
+lua;satélite natural da Terra.
+vela;fonte de luz com pavio.
+cavalo;animal de quatro patas usado para montaria.
+chocolate;doce feito a partir de cacau e açúcar.
+computador;dispositivo eletrônico para processamento de dados.
+avião;meio de transporte que voa no ar.
+biblioteca;local que abriga livros e recursos de leitura.
+nuvem;conjunto de partículas de água ou gelo no céu.
+teatro;local para apresentações ao vivo.
+universidade;instituição de ensino superior.
+cinema;local para exibição de filmes.
+circo;espetáculo com artistas e animais.
+zoológico;parque que exibe animais.
+inverno;estação mais fria do ano.
+rádio;meio de comunicação por ondas.
+ônibus;veículo de transporte público.
+piscina;área de água para natação.
+tatuagem;arte corporal permanente.
+jornal;meio de comunicação impresso.
+floresta;área extensa de árvores e vegetação.
+xampu;produto de cuidado capilar.
+ovo;produto alimentício da galinha.
+dente;peça dura na boca.
+café;bebida estimulante.
+gorila;mamífero primata.
+guitarra;instrumento musical de cordas.
+torre;estrutura alta e vertical.
+jornal;meio de comunicação impresso.
+pássaro;ave com penas e asas.
+cachorro;animal de estimação leal.
+abajur;fonte de luz com base e cúpula.
+eletricidade;forma de energia.
+astronauta;viajante espacial.
+água;líquido incolor e inodoro essencial para a vida.
+astronauta;viajante espacial.
+flores;plantas com flores coloridas.
+cavaleiro;guerreiro montado a cavalo.
+celular;dispositivo de comunicação móvel.
+praia;faixa de areia ao longo da costa.
+livro;obra literária.
+abajur;fonte de luz com base e cúpula.
+eletricidade;forma de energia.
+flores;plantas com flores coloridas.
+cavaleiro;guerreiro montado a cavalo.
+celular;dispositivo de comunicação móvel.
+praia;faixa de areia ao longo da costa.
+livro;obra literária.
+museu;instituição cultural para exibição de artefatos.
+pianista;pessoa que toca piano.
+deserto;região seca com pouca vegetação.
+colina;pequena elevação do terreno.
+arco-íris;fenômeno óptico com cores do espectro.
+foguete;veículo espacial impulsionado por motores.
+iglu;habitação de gelo dos povos esquimós.
+estrela;corpo celeste luminoso no céu.
+jardim;área cultivada com flores e plantas.
+caixa;recipiente retangular.
+orelha;órgão auditivo no corpo.
+fotógrafo;pessoa que tira fotografias.
+ponte;estrutura para atravessar um rio ou vale.
+selva;floresta tropical densa.
+globo;esfera que representa a Terra.
+pintor;artista que cria pinturas.
+dentista;profissional de saúde oral.
+gato;animal de estimação peludo.
+palhaço;artista de circo engraçado.
+astronauta;viajante espacial.
+arco;arma de projéteis flexível.
+lençol;tecido de cama.
+fruta;produto comestível de uma planta.
+pinguim;ave marinha não voadora.
+escola;instituição de ensino.
+girafa;mamífero de pescoço longo encontrado na savana africana.
+abelha;inseto que produz mel.
+relógio;dispositivo para medir o tempo.
+cachorro;animal de estimação leal.
+biblioteca;local que abriga livros e recursos de leitura.
+ar;mistura de gases que compõem a atmosfera.
+cachoeira;queda d'água natural.
+estação;período do ano.
+brinquedo;objeto de entretenimento infantil.
+castelo;fortificação medieval.
+cavalo;animal de quatro patas usado para montaria.
+lanche;refeição leve.
+dente;peça dura na boca.
+escada;estrutura para subir ou descer.
+farol;tower alto para orientação de navios.
+selo;marca de correio para correspondência.
+vulcão;montanha que entra em erupção.
+ilha;porção de terra cercada de água.
+inverno;estação mais fria do ano.
+teatro;local para apresentações ao vivo.
+chocolate;doce feito a partir de cacau e açúcar.
+computador;dispositivo eletrônico para processamento de dados.
+avião;meio de transporte que voa no ar.
+nuvem;conjunto de partículas de água ou gelo no céu.
+piano;instrumento musical de teclas.
+elefante;mamífero terrestre de grande porte com presas longas.
+teatro;local para apresentações ao vivo.
+abelha;inseto que produz mel.
+relógio;dispositivo para medir o tempo.
+cachorro;animal de estimação leal.
+biblioteca;local que abriga livros e recursos de leitura.
+ar;mistura de gases que compõem a atmosfera.
+cachoeira;queda d'água natural.
+estação;período do ano.
+brinquedo;objeto de entretenimento infantil.
+castelo;fortificação medieval.
+cavalo;animal de quatro patas usado para montaria.
+lanche;refeição leve.
+dente;peça dura na boca.
+escada;estrutura para subir ou descer.
+farol;tower alto para orientação de navios.
+selo;marca de correio para correspondência.
+vulcão;montanha que entra em erupção.
+ilha;porção de terra cercada de água.
+desfile;evento público com desfile de pessoas.
+cometa;objeto celeste com cauda luminosa.
+pintura;arte de aplicar tinta em uma superfície.
+jantar;refeição noturna.
+carrinho;veículo de pequeno porte com rodas.
+lua;satélite natural da Terra.
+árvore;planta de grande porte com tronco.
+chocolate;doce feito a partir de cacau e açúcar.
+computador;dispositivo eletrônico para processamento de dados.
+avião;meio de transporte que voa no ar.
+nuvem;conjunto de partículas de água ou gelo no céu.
+piano;instrumento musical de teclas.
+elefante;mamífero terrestre de grande porte com presas longas.
+teatro;local para apresentações ao vivo.
+abelha;inseto que produz mel.
+relógio;dispositivo para medir o tempo.
+cachorro;animal de estimação leal.
+biblioteca;local que abriga livros e recursos de leitura.
+ar;mistura de gases que compõem a atmosfera
