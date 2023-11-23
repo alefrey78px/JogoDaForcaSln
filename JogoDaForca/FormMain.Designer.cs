@@ -73,7 +73,7 @@
             // 
             this.labelPalavra.AutoSize = true;
             this.labelPalavra.Font = new System.Drawing.Font("Courier New", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPalavra.Location = new System.Drawing.Point(24, 529);
+            this.labelPalavra.Location = new System.Drawing.Point(3, 542);
             this.labelPalavra.Name = "labelPalavra";
             this.labelPalavra.Size = new System.Drawing.Size(559, 129);
             this.labelPalavra.TabIndex = 0;
@@ -390,7 +390,7 @@
             this.groupBox2.Controls.Add(this.labelQuantasLetras);
             this.groupBox2.Controls.Add(this.labelDica);
             this.groupBox2.Controls.Add(this.labelTentativasRestantes);
-            this.groupBox2.Location = new System.Drawing.Point(12, 651);
+            this.groupBox2.Location = new System.Drawing.Point(12, 673);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1155, 104);
             this.groupBox2.TabIndex = 2;
@@ -445,7 +445,7 @@
             this.btnSair.TabIndex = 4;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            this.btnSair.Click += new System.EventHandler(this.BtnSair_Click);
             // 
             // pictureBox1
             // 
@@ -460,7 +460,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1202, 767);
+            this.ClientSize = new System.Drawing.Size(1202, 789);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnNovoJogo);

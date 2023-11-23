@@ -58,9 +58,6 @@ namespace JogoDaForca
 
             if (forca.Venceu())
             {
-
-                pictureBox1.Image = Image.FromFile("db/trofeu.png");
-
                 MessageBox.Show("A palavra secreta era: "
                     + forca.Palavra, "VENCEDOR!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -98,7 +95,10 @@ namespace JogoDaForca
 
         private void AnimacaoEnforcamento(int chances)
         {
-            pictureBox1.Image = Image.FromFile("db/forca"+chances+".png");
+            if (forca.Venceu())
+                pictureBox1.Image = Image.FromFile("db/trofeu.png");
+            else
+                pictureBox1.Image = Image.FromFile("db/forca"+chances+".png");
         }
 
 
@@ -121,7 +121,7 @@ namespace JogoDaForca
             HabilitarControles(true);
         }
 
-        private void btnSair_Click(object sender, EventArgs e)
+        private void BtnSair_Click(object sender, EventArgs e)
         {
             Close();
         }
