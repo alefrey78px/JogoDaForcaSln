@@ -1,46 +1,25 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
-using System.Globalization;
 
 
 namespace JogoDaForca
 {
-    class Forca
+    internal class Forca
     {
-        private String _palavra;
-        private String _palavraMascarada;
+        private string _palavra;
+        private string _palavraMascarada;
         private int _tentativas;
-        private String _dica;
+        private string _dica;
         private int _quantidadeDeLetras;
-        
 
-        public int Tentativas
-        {
-            get { return _tentativas; }
-        }
 
-        public String Palavra
-        {
-            get { return _palavra; }
-        }
+        public int Tentativas => _tentativas;
+        public string Palavra => _palavra;
+        public string Dica => _dica;
+        public int QuantidadeLetras => _quantidadeDeLetras;
+        public string PalavraMascarada => _palavraMascarada;
 
-        public String Dica
-        {
-            get { return _dica; }
-        }
-
-        public int QuantidadeLetras
-        {
-            get { return _quantidadeDeLetras; }
-        }
-
-        public string PalavraMascarada
-        {
-            get { return _palavraMascarada; }
-        }
-
-        public Forca() { }
 
         public void InicioDoJogo()
         {
@@ -51,9 +30,9 @@ namespace JogoDaForca
 
             _quantidadeDeLetras = _palavra.Count(char.IsLetter); // conta as letras da palavra
 
-            // essa variavel é uma cópia "mascarada" com "-" da _palavra
+            // essa variavel é uma cópia "mascarada" com "?" da _palavra
             // serve para exibição na tela
-            _palavraMascarada = new string(_palavra.Select(c => c == ' ' ? ' ' : '-').ToArray());
+            _palavraMascarada = new string(_palavra.Select(c => c == ' ' ? ' ' : '?').ToArray());
         }
 
 
@@ -61,10 +40,11 @@ namespace JogoDaForca
         {
             // quando a palavra mascaracada for igual a palavra
             // o jogador venceu
-            if (string.Equals(_palavra, _palavraMascarada))
+            /*if (string.Equals(_palavra, _palavraMascarada))
                 return true;
 
-            return false;
+            return false;*/
+            return string.Equals(_palavra, _palavraMascarada);
         }
 
 
@@ -85,6 +65,7 @@ namespace JogoDaForca
             }
             else
             {
+                // diminui as tentativas e retorna false
                 _tentativas -= 1;
                 return false;
             }
@@ -109,8 +90,6 @@ namespace JogoDaForca
 
             return novaStringMascarada.ToString();
         }
-
-
 
     }
 }

@@ -1,38 +1,31 @@
 ﻿using System;
-using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
 
 
 namespace JogoDaForca
 {
-    static class SortearPalavra
+    internal static class SortearPalavra
     {
-        private static String _palavra;
-        private static String _dica;
-        private static readonly string caminhoArquivo = "db/palavras.txt";
-        private static readonly Random random = new Random();
+        private static string _palavra;
+        private static string _dica;
+        private const string CaminhoArquivo = "db/palavras.txt";
+        private static readonly Random gerarNumeroAleatorio = new Random();
 
-        public static string Palavra
-        {
-            get { return _palavra; }
-        }
+        public static string Palavra => _palavra;
 
-        public static string Dica
-        {
-            get { return _dica; }
-        }
+        public static string Dica => _dica;
 
-        private static int ContarLinhas(string caminhoArquivo)
+        private static int ContarLinhas()
         {
             try
             {
-                string[] linhas = File.ReadAllLines(caminhoArquivo);
+                string[] linhas = File.ReadAllLines(CaminhoArquivo);
                 return linhas.Length;
             }
             catch (FileNotFoundException)
             {
-                throw new Exception($"Arquivo não encontrado: {caminhoArquivo}");
+                throw new Exception($"Arquivo não encontrado: {CaminhoArquivo}");
             }
             catch (Exception ex)
             {
@@ -43,7 +36,7 @@ namespace JogoDaForca
 
         private static int GerarNumeroAleatorio(int maximo)
         {
-            return random.Next(maximo);         
+            return gerarNumeroAleatorio.Next(maximo);         
         }
 
 
@@ -59,7 +52,7 @@ namespace JogoDaForca
             try
             {
                 // Lê a linha específica do arquivo
-                string linha = File.ReadLines(caminhoArquivo).Skip(numeroLinha - 1).FirstOrDefault();
+                string linha = File.ReadLines(CaminhoArquivo).Skip(numeroLinha - 1).FirstOrDefault();
 
                 if (linha != null)
                 {
@@ -90,12 +83,12 @@ namespace JogoDaForca
         {
 
             // Conta quantas linhas tem o arquivo
-            int numeroLinhas = ContarLinhas(caminhoArquivo);
+            int numeroLinhas = ContarLinhas();
 
             // Gera um numero aleatorio de 0 ao numero de linhas do arquivo
             int numeroLinhaDesejada = GerarNumeroAleatorio(numeroLinhas);
 
-            string[] conteudoLinha = LerLinhaSepararPorPontoEVirgula(caminhoArquivo, numeroLinhaDesejada);
+            string[] conteudoLinha = LerLinhaSepararPorPontoEVirgula(CaminhoArquivo, numeroLinhaDesejada);
 
             if (conteudoLinha != null && conteudoLinha.Length == 2)
             {

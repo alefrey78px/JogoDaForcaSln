@@ -3,12 +3,11 @@ using System.Drawing;
 using System.Windows.Forms;
 
 
-
 namespace JogoDaForca
 {
     public partial class FormMain : Form
     {
-        readonly Forca forca = new Forca();
+        private readonly Forca _forca = new Forca();
 
 
         public FormMain()
@@ -37,42 +36,45 @@ namespace JogoDaForca
             if (sender is Button btn)
             {
                 // Chamar a função e passar a letra como parâmetro
-                bool acertou = forca.VerificaChute(btn.Text[0]);
+                //bool acertou = _forca.VerificaChute(btn.Text[0]);
+                var acertou = _forca.VerificaChute(btn.Text[0]);
 
                 // Desabilitar o botão
                 btn.Enabled = false;
 
+                btn.BackColor = acertou ? Color.Blue : Color.Red;
+                /*
                 if (acertou)
                     btn.BackColor = Color.Blue;
                 else
-                    btn.BackColor = Color.Red;
+                    btn.BackColor = Color.Red;*/
 
             }
 
-            labelPalavra.Text = forca.PalavraMascarada;
+            labelPalavra.Text = _forca.PalavraMascarada;
 
             labelTentativasRestantes.Text = "Tentativas: "
-                + forca.Tentativas.ToString();
+                + _forca.Tentativas.ToString();
 
-            AnimacaoEnforcamento(forca.Tentativas);
+            AnimacaoEnforcamento(_forca.Tentativas);
 
-            if (forca.Venceu())
+            if (_forca.Venceu())
             {
                 MessageBox.Show("A palavra secreta era: "
-                    + forca.Palavra, "VENCEDOR!",
+                    + _forca.Palavra, "VENCEDOR!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 HabilitarControles(false);
             }
 
-            if (forca.Tentativas == 0)
-            {
-                MessageBox.Show("A palavra secreta era: "
-                    + forca.Palavra, "GAME OVER!",
+            if (_forca.Tentativas != 0)
+                return;
+            
+            MessageBox.Show("A palavra secreta era: "
+                    + _forca.Palavra, "GAME OVER!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                HabilitarControles(false);
-            }
+            HabilitarControles(false);
 
         }
 
@@ -80,11 +82,11 @@ namespace JogoDaForca
         {
             foreach (Control control in this.groupBox1.Controls)
             {
-                if (control is Button botao)
-                {
-                    botao.Enabled = estado;
-                    botao.BackColor = SystemColors.Control;
-                }
+                if (!(control is Button botao))
+                    continue;
+
+                botao.Enabled = estado;
+                botao.BackColor = SystemColors.Control;
             }
 
             pictureBox1.Visible = estado;
@@ -95,26 +97,33 @@ namespace JogoDaForca
 
         private void AnimacaoEnforcamento(int chances)
         {
-            if (forca.Venceu())
+            // Sugestão do ReSharper
+            // achei mais confuso...
+            pictureBox1.Image = _forca.Venceu()
+                ? Image.FromFile("db/trofeu.png")
+                : Image.FromFile("db/forca" + chances + ".png");
+            /*
+            if (_forca.Venceu())
                 pictureBox1.Image = Image.FromFile("db/trofeu.png");
             else
                 pictureBox1.Image = Image.FromFile("db/forca"+chances+".png");
+            */
         }
 
 
         private void BtnNovoJogo_Click(object sender, EventArgs e)
         {
-            forca.InicioDoJogo();
+            _forca.InicioDoJogo();
 
-            labelPalavra.Text = forca.PalavraMascarada;
+            labelPalavra.Text = _forca.PalavraMascarada;
 
-            labelDica.Text = "Dica: " + forca.Dica;
+            labelDica.Text = "Dica: " + _forca.Dica;
 
             labelQuantasLetras.Text = "Letras: "
-                + forca.QuantidadeLetras;
+                + _forca.QuantidadeLetras;
 
             labelTentativasRestantes.Text = "Tentativas: "
-                + forca.Tentativas.ToString();
+                + _forca.Tentativas.ToString();
 
             pictureBox1.Image = Image.FromFile("db/forca7.png");
 
@@ -123,7 +132,16 @@ namespace JogoDaForca
 
         private void BtnSair_Click(object sender, EventArgs e)
         {
-            Close();
+            // Exibe uma mensagem de confirmação
+            DialogResult resultado = MessageBox.Show("Deseja realmente sair?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Verifica a escolha do usuário
+            if (resultado == DialogResult.Yes)
+            {
+                // Fecha o formulário se o usuário escolheu "Sim"
+                Close();
+            }
+            // Se o usuário escolheu "Não", não faz nada
         }
 
     }
