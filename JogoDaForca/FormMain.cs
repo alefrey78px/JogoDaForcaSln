@@ -51,7 +51,7 @@ namespace JogoDaForca
 
             }
 
-            labelPalavra.Text = _forca.PalavraMascarada;
+            labelPalavra.Text = _forca.Palavra.PalavraMascarada;
 
             labelTentativasRestantes.Text = "Tentativas: "
                 + _forca.Tentativas.ToString();
@@ -61,7 +61,7 @@ namespace JogoDaForca
             if (_forca.Venceu())
             {
                 MessageBox.Show("A palavra secreta era: "
-                    + _forca.Palavra, "VENCEDOR!",
+                    + _forca.Palavra.Palavra, "VENCEDOR!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 HabilitarControles(false);
@@ -71,7 +71,7 @@ namespace JogoDaForca
                 return;
             
             MessageBox.Show("A palavra secreta era: "
-                    + _forca.Palavra, "GAME OVER!",
+                    + _forca.Palavra.Palavra, "GAME OVER!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             HabilitarControles(false);
@@ -115,12 +115,13 @@ namespace JogoDaForca
         {
             _forca.InicioDoJogo();
 
-            labelPalavra.Text = _forca.PalavraMascarada;
+            labelPalavra.Text = _forca.Palavra.PalavraMascarada;
 
-            labelDica.Text = "Dica: " + _forca.Dica;
+            //labelDica.Text = "Dica: " + _forca.Palavra.Dica;
+            labelDica.Text = $"Dica: {_forca.Palavra.Dica}";
 
             labelQuantasLetras.Text = "Letras: "
-                + _forca.QuantidadeLetras;
+                + _forca.Palavra.Tamanho;
 
             labelTentativasRestantes.Text = "Tentativas: "
                 + _forca.Tentativas.ToString();

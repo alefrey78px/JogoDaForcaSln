@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Text;
 
 
@@ -7,34 +6,26 @@ namespace JogoDaForca
 {
     internal class Forca
     {
-        private string _palavra;
-        private string _palavraMascarada;
+        private PalavraComDica _palavraSorteada;
+        private RepositorioPalavras _sortearPalavra = new RepositorioPalavras();
+
         private int _tentativas;
-        private string _dica;
-        private int _quantidadeDeLetras;
 
-
-        public int Tentativas => _tentativas;
-        public string Palavra => _palavra;
-        public string Dica => _dica;
-        public int QuantidadeLetras => _quantidadeDeLetras;
-        public string PalavraMascarada => _palavraMascarada;
-
+        public int Tentativas
+        {
+            get { return _tentativas; }
+        }
+        
+        public PalavraComDica Palavra
+        {
+            get { return _palavraSorteada; }
+        }
 
         public void InicioDoJogo()
         {
-            SortearPalavra.Sortear(); // faz o sorteio da palavra e dica
-            _palavra = SortearPalavra.Palavra; // recebe a palavra
-            _dica = SortearPalavra.Dica; // recebe a dica
+            _palavraSorteada = _sortearPalavra.Sorteia();
             _tentativas = 7;
-
-            _quantidadeDeLetras = _palavra.Count(char.IsLetter); // conta as letras da palavra
-
-            // essa variavel é uma cópia "mascarada" com "?" da _palavra
-            // serve para exibição na tela
-            _palavraMascarada = new string(_palavra.Select(c => c == ' ' ? ' ' : '?').ToArray());
         }
-
 
         public bool Venceu()
         {
@@ -44,7 +35,7 @@ namespace JogoDaForca
                 return true;
 
             return false;*/
-            return string.Equals(_palavra, _palavraMascarada);
+            return string.Equals(_palavraSorteada.Palavra, _palavraSorteada.PalavraMascarada);
         }
 
 
@@ -54,12 +45,12 @@ namespace JogoDaForca
             string letraNormalizada = letra.ToString().Normalize(NormalizationForm.FormD);
 
             // Normaliza a palavra e verifica se ela contém a letra normalizada
-            bool temALetra = _palavra.Normalize(NormalizationForm.FormD).Contains(letraNormalizada);
+            bool temALetra = _palavraSorteada.Palavra.Normalize(NormalizationForm.FormD).Contains(letraNormalizada);
 
             if (temALetra)
             {
                 // Atualiza a palavra mascarada considerando a normalização
-                _palavraMascarada = AtualizarPalavraMascarada(letra);
+                _palavraSorteada.PalavraMascarada = AtualizarPalavraMascarada(letra);
 
                 return true;
             }
@@ -74,17 +65,17 @@ namespace JogoDaForca
         private string AtualizarPalavraMascarada(char letra)
         {
             char letraChutada = letra;
-            StringBuilder novaStringMascarada = new StringBuilder(_palavraMascarada);
+            StringBuilder novaStringMascarada = new StringBuilder(_palavraSorteada.PalavraMascarada);
 
-            for (int i = 0; i < _palavra.Length; i++)
+            for (int i = 0; i < _palavraSorteada.Palavra.Length; i++)
             {
                 // Normaliza a letra atual da palavra antes de comparar
-                char letraAtualNormalizada = _palavra[i].ToString().Normalize(NormalizationForm.FormD)[0];
+                char letraAtualNormalizada = _palavraSorteada.Palavra[i].ToString().Normalize(NormalizationForm.FormD)[0];
 
                 if (letraAtualNormalizada == letraChutada)
                 {
                     // Atualiza a letra mascarada na mesma posição que está na string original
-                    novaStringMascarada[i] = _palavra[i];
+                    novaStringMascarada[i] = _palavraSorteada.Palavra[i];
                 }
             }
 
