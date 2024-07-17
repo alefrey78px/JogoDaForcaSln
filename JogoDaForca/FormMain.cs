@@ -93,6 +93,7 @@ namespace JogoDaForca
             labelPalavra.Visible = estado;
             groupBox1.Visible = estado;
             groupBox2.Visible = estado;
+            lblTrapaca.Visible = estado;
         }
 
         private void AnimacaoEnforcamento(int chances)
@@ -129,6 +130,8 @@ namespace JogoDaForca
             pictureBox1.Image = Image.FromFile("db/forca7.png");
 
             HabilitarControles(true);
+
+            lblTrapaca.Text = _forca.Palavra.ToString();
         }
 
         private void BtnSair_Click(object sender, EventArgs e)

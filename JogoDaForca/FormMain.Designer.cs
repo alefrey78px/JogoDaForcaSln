@@ -63,6 +63,7 @@
             this.btnNovoJogo = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblTrapaca = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -444,11 +445,22 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
+            // lblTrapaca
+            // 
+            this.lblTrapaca.AutoSize = true;
+            this.lblTrapaca.ForeColor = System.Drawing.Color.Red;
+            this.lblTrapaca.Location = new System.Drawing.Point(782, 411);
+            this.lblTrapaca.Name = "lblTrapaca";
+            this.lblTrapaca.Size = new System.Drawing.Size(44, 16);
+            this.lblTrapaca.TabIndex = 6;
+            this.lblTrapaca.Text = "label1";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1202, 789);
+            this.Controls.Add(this.lblTrapaca);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnNovoJogo);
@@ -503,6 +515,7 @@
         private System.Windows.Forms.Label labelQuantasLetras;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblTrapaca;
     }
 }
 
