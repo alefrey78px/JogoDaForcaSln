@@ -5,6 +5,10 @@ using System.Windows.Forms;
 
 namespace JogoDaForca
 {
+    // codigo referente a interface do jogo
+    // instancia a classe Forca e a utiliza
+    // para obter e inserir dados, controlando 
+    // assim o estado dos labels, buttons etc.
     public partial class FormMain : Form
     {
         private readonly Forca _forca = new Forca();
@@ -51,7 +55,7 @@ namespace JogoDaForca
 
             }
 
-            labelPalavra.Text = _forca.Palavra.PalavraMascarada;
+            labelPalavra.Text = _forca.PalavraComDica.PalavraMascarada;
 
             labelTentativasRestantes.Text = "Tentativas: "
                 + _forca.Tentativas.ToString();
@@ -61,7 +65,7 @@ namespace JogoDaForca
             if (_forca.Venceu())
             {
                 MessageBox.Show("A palavra secreta era: "
-                    + _forca.Palavra.Palavra, "VENCEDOR!",
+                    + _forca.PalavraComDica.Palavra, "VENCEDOR!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 HabilitarControles(false);
@@ -71,7 +75,7 @@ namespace JogoDaForca
                 return;
             
             MessageBox.Show("A palavra secreta era: "
-                    + _forca.Palavra.Palavra, "GAME OVER!",
+                    + _forca.PalavraComDica.Palavra, "GAME OVER!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             HabilitarControles(false);
@@ -116,13 +120,13 @@ namespace JogoDaForca
         {
             _forca.InicioDoJogo();
 
-            labelPalavra.Text = _forca.Palavra.PalavraMascarada;
+            labelPalavra.Text = _forca.PalavraComDica.PalavraMascarada;
 
             //labelDica.Text = "Dica: " + _forca.Palavra.Dica;
-            labelDica.Text = $"Dica: {_forca.Palavra.Dica}";
+            labelDica.Text = $"Dica: {_forca.PalavraComDica.Dica}";
 
             labelQuantasLetras.Text = "Letras: "
-                + _forca.Palavra.Tamanho;
+                + _forca.PalavraComDica.Tamanho;
 
             labelTentativasRestantes.Text = "Tentativas: "
                 + _forca.Tentativas.ToString();
@@ -131,7 +135,7 @@ namespace JogoDaForca
 
             HabilitarControles(true);
 
-            lblTrapaca.Text = _forca.Palavra.ToString();
+            lblTrapaca.Text = _forca.PalavraComDica.ToString();
         }
 
         private void BtnSair_Click(object sender, EventArgs e)

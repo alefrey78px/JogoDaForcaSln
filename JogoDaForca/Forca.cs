@@ -22,7 +22,7 @@ namespace JogoDaForca
             get { return _tentativas; }
         }
 
-        public PalavraComDica Palavra
+        public PalavraComDica PalavraComDica
         {
             get { return _palavraComDicaSelecionada; }
         }
