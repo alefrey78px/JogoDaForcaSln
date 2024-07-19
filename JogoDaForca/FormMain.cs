@@ -65,7 +65,6 @@ namespace JogoDaForca
                     btn.BackColor = Color.Blue;
                 else
                     btn.BackColor = Color.Red;*/
-
             }
 
             LblPontos.Text = _forca.PlacarAtual.Pontos.ToString();
@@ -77,24 +76,8 @@ namespace JogoDaForca
 
             AnimacaoEnforcamento(_forca.Tentativas);
 
-            if (_forca.Venceu())
-            {
-                MessageBox.Show("A palavra secreta era: "
-                    + _forca.PalavraComDicaSorteada.Palavra, "VENCEDOR!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            if (_forca.Venceu() || _forca.Tentativas == 0)
                 HabilitarControles(false);
-            }
-
-            if (_forca.Tentativas != 0)
-                return;
-
-            MessageBox.Show("A palavra secreta era: "
-                    + _forca.PalavraComDicaSorteada.Palavra, "GAME OVER!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            HabilitarControles(false);
-
         }
 
         private void HabilitarControles(bool estado)
