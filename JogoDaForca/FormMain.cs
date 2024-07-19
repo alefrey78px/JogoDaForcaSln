@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
+
 
 
 namespace JogoDaForca
@@ -21,8 +23,19 @@ namespace JogoDaForca
             HabilitarControles(false);
 
             AtribuiLetras();
+
+            ArmazenaNomeDoJogador();
         }
 
+        private void ArmazenaNomeDoJogador()
+        {
+            string pergunta = "Informe seu nome:";
+            string titulo = "Jogo da Forca";
+            string respostaPadrao = "Jogador";
+            string nomeJogador = Interaction.InputBox(pergunta, titulo, respostaPadrao);
+
+            _forca.PlacarAtual.Jogador = nomeJogador;
+        }
 
         private void AtribuiLetras()
         {
@@ -55,7 +68,9 @@ namespace JogoDaForca
 
             }
 
-            labelPalavra.Text = _forca.PalavraComDica.PalavraMascarada;
+            LblPontos.Text = _forca.PlacarAtual.Pontos.ToString();
+
+            labelPalavra.Text = _forca.PalavraComDicaSorteada.PalavraMascarada;
 
             labelTentativasRestantes.Text = "Tentativas: "
                 + _forca.Tentativas.ToString();
@@ -65,7 +80,7 @@ namespace JogoDaForca
             if (_forca.Venceu())
             {
                 MessageBox.Show("A palavra secreta era: "
-                    + _forca.PalavraComDica.Palavra, "VENCEDOR!",
+                    + _forca.PalavraComDicaSorteada.Palavra, "VENCEDOR!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 HabilitarControles(false);
@@ -73,9 +88,9 @@ namespace JogoDaForca
 
             if (_forca.Tentativas != 0)
                 return;
-            
+
             MessageBox.Show("A palavra secreta era: "
-                    + _forca.PalavraComDica.Palavra, "GAME OVER!",
+                    + _forca.PalavraComDicaSorteada.Palavra, "GAME OVER!",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             HabilitarControles(false);
@@ -93,11 +108,13 @@ namespace JogoDaForca
                 botao.BackColor = SystemColors.Control;
             }
 
+            /*
             pictureBox1.Visible = estado;
             labelPalavra.Visible = estado;
             groupBox1.Visible = estado;
             groupBox2.Visible = estado;
             lblTrapaca.Visible = estado;
+            */
         }
 
         private void AnimacaoEnforcamento(int chances)
@@ -120,22 +137,25 @@ namespace JogoDaForca
         {
             _forca.InicioDoJogo();
 
-            labelPalavra.Text = _forca.PalavraComDica.PalavraMascarada;
+            labelPalavra.Text = _forca.PalavraComDicaSorteada.PalavraMascarada;
 
             //labelDica.Text = "Dica: " + _forca.Palavra.Dica;
-            labelDica.Text = $"Dica: {_forca.PalavraComDica.Dica}";
+            labelDica.Text = $"Dica: {_forca.PalavraComDicaSorteada.Dica}";
 
             labelQuantasLetras.Text = "Letras: "
-                + _forca.PalavraComDica.Tamanho;
+                + _forca.PalavraComDicaSorteada.Tamanho;
 
             labelTentativasRestantes.Text = "Tentativas: "
                 + _forca.Tentativas.ToString();
 
             pictureBox1.Image = Image.FromFile("db/forca7.png");
 
+            LblJogador.Text = _forca.PlacarAtual.Jogador;
+            LblPontos.Text = _forca.PlacarAtual.Pontos.ToString();
+
             HabilitarControles(true);
 
-            lblTrapaca.Text = _forca.PalavraComDica.ToString();
+            //lblTrapaca.Text = _forca.PalavraComDica.ToString();
         }
 
         private void BtnSair_Click(object sender, EventArgs e)

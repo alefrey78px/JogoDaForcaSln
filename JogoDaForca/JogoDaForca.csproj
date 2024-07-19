@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -54,6 +55,7 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="PalavraComDica.cs" />
+    <Compile Include="Placar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositorioPalavras.cs" />

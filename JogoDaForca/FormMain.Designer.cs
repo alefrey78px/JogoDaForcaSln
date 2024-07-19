@@ -64,6 +64,10 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTrapaca = new System.Windows.Forms.Label();
+            this.LblJogador = new System.Windows.Forms.Label();
+            this.LblPontos = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -376,9 +380,14 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblTrapaca);
+            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.labelQuantasLetras);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.labelDica);
+            this.groupBox2.Controls.Add(this.LblPontos);
             this.groupBox2.Controls.Add(this.labelTentativasRestantes);
+            this.groupBox2.Controls.Add(this.LblJogador);
             this.groupBox2.Location = new System.Drawing.Point(12, 673);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1155, 104);
@@ -449,18 +458,54 @@
             // 
             this.lblTrapaca.AutoSize = true;
             this.lblTrapaca.ForeColor = System.Drawing.Color.Red;
-            this.lblTrapaca.Location = new System.Drawing.Point(782, 411);
+            this.lblTrapaca.Location = new System.Drawing.Point(880, 54);
             this.lblTrapaca.Name = "lblTrapaca";
-            this.lblTrapaca.Size = new System.Drawing.Size(44, 16);
+            this.lblTrapaca.Size = new System.Drawing.Size(0, 16);
             this.lblTrapaca.TabIndex = 6;
-            this.lblTrapaca.Text = "label1";
+            // 
+            // LblJogador
+            // 
+            this.LblJogador.AutoSize = true;
+            this.LblJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblJogador.Location = new System.Drawing.Point(705, 28);
+            this.LblJogador.Name = "LblJogador";
+            this.LblJogador.Size = new System.Drawing.Size(0, 25);
+            this.LblJogador.TabIndex = 7;
+            // 
+            // LblPontos
+            // 
+            this.LblPontos.AutoSize = true;
+            this.LblPontos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPontos.Location = new System.Drawing.Point(705, 54);
+            this.LblPontos.Name = "LblPontos";
+            this.LblPontos.Size = new System.Drawing.Size(0, 25);
+            this.LblPontos.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(614, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 25);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Jogador:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(622, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 25);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Pontos:";
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1202, 789);
-            this.Controls.Add(this.lblTrapaca);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnNovoJogo);
@@ -516,6 +561,10 @@
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblTrapaca;
+        private System.Windows.Forms.Label LblJogador;
+        private System.Windows.Forms.Label LblPontos;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 
