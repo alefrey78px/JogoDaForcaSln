@@ -13,7 +13,7 @@ namespace JogoDaForca
     // assim o estado dos labels, buttons etc.
     public partial class FormMain : Form
     {
-        private readonly Forca _forca = new Forca();
+        private Forca _forca;
 
 
         public FormMain()
@@ -23,8 +23,6 @@ namespace JogoDaForca
             HabilitarControles(false);
 
             AtribuiLetras();
-
-            ArmazenaNomeDoJogador();
         }
 
         private void ArmazenaNomeDoJogador()
@@ -39,13 +37,11 @@ namespace JogoDaForca
 
         private void AtribuiLetras()
         {
-
             foreach (Control control in this.groupBox1.Controls)
             {
                 if (control is Button botao)
                     botao.Click += Letra_Click;
             }
-
         }
 
         private void Letra_Click(object sender, EventArgs e)
@@ -67,17 +63,38 @@ namespace JogoDaForca
                     btn.BackColor = Color.Red;*/
             }
 
+            AtualizaInformacoes();
+
+            AnimacaoEnforcamento(_forca.Tentativas);
+
+            if (_forca.Venceu() || _forca.Tentativas == 0)
+            {
+                DialogResult resultado = MessageBox.Show(
+                    "Deseja continuar jogando?",
+                    "Jogo da Forca",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Information);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    NovoJogo();
+                }
+                else if (resultado == DialogResult.No)
+                {
+                    HabilitarControles(false);
+                    _forca = null;
+                }
+            }
+        }
+
+        private void AtualizaInformacoes()
+        {
             LblPontos.Text = _forca.PlacarAtual.Pontos.ToString();
 
             labelPalavra.Text = _forca.PalavraComDicaSorteada.PalavraMascarada;
 
             labelTentativasRestantes.Text = "Tentativas: "
                 + _forca.Tentativas.ToString();
-
-            AnimacaoEnforcamento(_forca.Tentativas);
-
-            if (_forca.Venceu() || _forca.Tentativas == 0)
-                HabilitarControles(false);
         }
 
         private void HabilitarControles(bool estado)
@@ -115,8 +132,14 @@ namespace JogoDaForca
             */
         }
 
-
         private void BtnNovoJogo_Click(object sender, EventArgs e)
+        {
+            _forca = new Forca();
+            ArmazenaNomeDoJogador();
+            NovoJogo();
+        }
+
+        private void NovoJogo()
         {
             _forca.InicioDoJogo();
 
