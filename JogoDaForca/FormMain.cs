@@ -12,7 +12,9 @@ namespace JogoDaForca
         public FormMain()
         {
             InitializeComponent();
+
             HabilitarTeclado(false);
+
             AtribuiMetodoAsTeclasDoTeclado();
         }
 
@@ -41,13 +43,11 @@ namespace JogoDaForca
                 btn.Enabled = false;
                 btn.BackColor = acertou ? Color.Blue : Color.Red;
                                                 
-                AtualizaInterfaceDoJogo();
-
                 int tentativasRestantes = _forca.ObterTentativasRestantes();
 
-                AnimacaoEnforcamento(tentativasRestantes);
-
                 bool acertouPalavra = _forca.VerificarSeGanhou();
+
+                AtualizaInterfaceDoJogo();
 
                 if (acertouPalavra || tentativasRestantes == 0)
                 {
@@ -76,12 +76,26 @@ namespace JogoDaForca
 
         private void AtualizaInterfaceDoJogo()
         {
-            labelDica.Text = $"Dica: {_forca.ObterDica()}";
-            labelQuantasLetras.Text = $"Letras: {_forca.TamanhoDaPalavra().ToString()}";
-            labelTentativasRestantes.Text = $"Tentativas: {_forca.ObterTentativasRestantes()}";
-            LblJogador.Text = _forca.ObterNomeDoJogador();
-            LblPontos.Text = _forca.ObterPontuacao().ToString();
-            labelPalavra.Text = _forca.ObterPalavraMascarada();
+            // Obtendo os valores dos métodos da classe _forca
+            string dica = _forca.ObterDica();
+            int tamanhoDaPalavra = _forca.TamanhoDaPalavra();
+            int tentativasRestantes = _forca.ObterTentativasRestantes();
+            string nomeDoJogador = _forca.ObterNomeDoJogador();
+            int pontuacao = _forca.ObterPontuacao();
+            string palavraMascarada = _forca.ObterPalavraMascarada();
+
+            // Atribuindo os valores às labels
+            labelDica.Text = $"Dica: {dica}";
+            labelQuantasLetras.Text = $"Letras: {tamanhoDaPalavra}";
+            labelTentativasRestantes.Text = $"Tentativas: {tentativasRestantes}";
+            labelJogador.Text = $"Jogador: {nomeDoJogador}";
+            labelPontos.Text = $"Pontos: {pontuacao}";
+            labelPalavra.Text = palavraMascarada;
+
+            // Atualizando a animação de enforcamento
+            pictureBox1.Image = _forca.VerificarSeGanhou()
+                ? Image.FromFile("Imagens/trofeu.png")
+                : Image.FromFile($"Imagens/forca{tentativasRestantes}.png");
         }
 
 
@@ -96,15 +110,7 @@ namespace JogoDaForca
                 }
             }
         }
-
-
-        private void AnimacaoEnforcamento(int chances)
-        {
-            pictureBox1.Image = _forca.VerificarSeGanhou()
-                ? Image.FromFile("Imagens/trofeu.png")
-                : Image.FromFile("Imagens/forca" + chances + ".png");
-        }
-
+        
 
         private void BtnNovoJogo_Click(object sender, EventArgs e)
         {
@@ -113,6 +119,8 @@ namespace JogoDaForca
             NovoJogo();
 
             ArmazenaNomeDoJogador();
+
+            AtualizaInterfaceDoJogo();
         }
 
 
@@ -120,11 +128,9 @@ namespace JogoDaForca
         {
             _forca.IniciarNovoJogo();
 
-            pictureBox1.Image = Image.FromFile("Imagens/forca7.png");
+            HabilitarTeclado(true);
 
             AtualizaInterfaceDoJogo();
-
-            HabilitarTeclado(true);
         }
 
 

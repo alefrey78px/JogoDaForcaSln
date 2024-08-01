@@ -43,7 +43,6 @@
 
         public bool VerificarSeGanhou() =>
             string.Equals(_palavra.Palavra, _palavra.PalavraMascarada);
-
         public int ObterPontuacao() => _placar.ObterPontuacao();
         public string ObterNomeDoJogador() => _placar.ObterNomeDoJogador();
         public int ObterTentativasRestantes() => _tentativas;
