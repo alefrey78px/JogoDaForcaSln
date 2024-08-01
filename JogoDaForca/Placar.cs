@@ -1,32 +1,48 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JogoDaForca
 {
     public class Placar
     {
-        public Placar() {
-            this.Jogador = string.Empty;
-            this.Pontos = 0;
+        private const int PontosPorAcerto = 10;
+        private const int PontosPorErro = 5;
+
+        private string _jogador;
+        private int _pontos;
+
+
+        public Placar()
+        {
+            _jogador = string.Empty;
+            _pontos = 0;
         }
 
-        public string Jogador { get; set; }
-        public int Pontos { get; private set; }
+
+        public string ObterNomeDoJogador() => _jogador;
+        public int ObterPontuacao() => _pontos;
+
+        public void DefinirNomeDoJogador(string nome)
+        {
+            if (string.IsNullOrWhiteSpace(nome))
+                throw new ArgumentException("O nome do jogador não pode ser vazio ou somente espaços em branco.");
+
+            _jogador = nome;
+        }
 
         public int CalculaPontuacao(bool acertouLetra)
         {
             if (acertouLetra)
             {
-                Pontos += 10;
-                return Pontos;
+                _pontos += PontosPorAcerto;
+                return _pontos;
             }
-
-            Pontos -= 5;
-            return Pontos;
+            else
+            {
+                _pontos -= PontosPorErro;
+                return _pontos;
+            }
         }
 
     }
+
 }

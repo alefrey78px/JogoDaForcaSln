@@ -1,97 +1,56 @@
-﻿using System;
-using System.Text;
-
-
-namespace JogoDaForca
+﻿namespace JogoDaForca
 {
-    internal class Forca
+    public class Forca
     {
-        // Essa classe contém a mecanica do jogo.
-        // Com as modificações introduzidas pelas classes PalavraComDica e RepositorioPalavras
-        // pode-se simplificar essa classe, removendo-de inumeras variaveis que se tornaram
-        // desnecessarias, pois foram substituidas por um objeto do tipo PalavraComDica.
-        // Dessa forma o codigo ficou mais organizado.
-
-        private PalavraComDica _palavraComDicaSorteada;
-        private RepositorioPalavras _repositorioPalavras = new RepositorioPalavras();
-        private Placar _placar = new Placar();
+        private PalavraComDica _palavra;
+        private RepositorioPalavras _repositorioPalavras;
+        private Placar _placar;
         private int _tentativas;
 
-        public Placar PlacarAtual
+        public Forca()
         {
-            get { return _placar; }
-            set { _placar.Jogador = value.ToString(); }
+            _repositorioPalavras = new RepositorioPalavras();
+            _placar = new Placar();
         }
 
-        public int Tentativas
+        public void IniciarNovoJogo()
         {
-            get { return _tentativas; }
+            _palavra = _repositorioPalavras.Sorteia(); // sorteia nova palavra
+            _tentativas = 7; // reseta número de tentativas
         }
 
-        public PalavraComDica PalavraComDicaSorteada
+
+        // Método para processar a letra "chutada" pelo jogador.
+        // Basicamente ele verifica se a letra chutada existe na palavra.
+        public bool ProcessarChute(char letra)
         {
-            get { return _palavraComDicaSorteada; }
-        }
-
-        public void InicioDoJogo()
-        {
-            _palavraComDicaSorteada = _repositorioPalavras.Sorteia();
-            _tentativas = 7;
-        }
-
-        public bool Venceu()
-        {
-            // quando a palavra mascaracada for igual a palavra
-            // o jogador venceu
-            /*if (string.Equals(_palavra, _palavraMascarada))
-                return true;
-
-            return false;*/
-            return string.Equals(_palavraComDicaSorteada.Palavra, _palavraComDicaSorteada.PalavraMascarada);
-        }
-
-        public bool VerificaChute(char letra)
-        {
-            // Normaliza a letra digitada para remover acentos
-            string letraNormalizada = letra.ToString().Normalize(NormalizationForm.FormD);
-
-            // Normaliza a palavra e verifica se ela contém a letra normalizada
-            bool temALetra = _palavraComDicaSorteada.Palavra.Normalize(NormalizationForm.FormD).Contains(letraNormalizada);
-
-            if (temALetra)
+            bool acertou = _palavra.ChecarPresencaDaLetraNaPalavra(letra);
+            
+            if (acertou)
             {
-                // Atualiza a palavra mascarada considerando a normalização
-                _palavraComDicaSorteada.PalavraMascarada = AtualizarPalavraMascarada(letra);
-                _placar.CalculaPontuacao(temALetra);
-
+                _placar.CalculaPontuacao(true);
                 return true;
             }
-
-            // se chegou aqui diminui as tentativas e retorna false
-            _tentativas -= 1;
-            _placar.CalculaPontuacao(temALetra);
+            else
+            {
+                _tentativas--;
+                _placar.CalculaPontuacao(false);
+            }
+            
             return false;
         }
 
-        private string AtualizarPalavraMascarada(char letra)
-        {
-            char letraChutada = letra;
-            StringBuilder novaStringMascarada = new StringBuilder(_palavraComDicaSorteada.PalavraMascarada);
 
-            for (int i = 0; i < _palavraComDicaSorteada.Palavra.Length; i++)
-            {
-                // Normaliza a letra atual da palavra antes de comparar
-                char letraAtualNormalizada = _palavraComDicaSorteada.Palavra[i].ToString().Normalize(NormalizationForm.FormD)[0];
+        public bool VerificarSeGanhou() =>
+            string.Equals(_palavra.Palavra, _palavra.PalavraMascarada);
 
-                if (letraAtualNormalizada == letraChutada)
-                {
-                    // Atualiza a letra mascarada na mesma posição que está na string original
-                    novaStringMascarada[i] = _palavraComDicaSorteada.Palavra[i];
-                }
-            }
-
-            return novaStringMascarada.ToString();
-        }
-
+        public int ObterPontuacao() => _placar.ObterPontuacao();
+        public string ObterNomeDoJogador() => _placar.ObterNomeDoJogador();
+        public int ObterTentativasRestantes() => _tentativas;
+        public string ObterPalavraMascarada() => _palavra.PalavraMascarada;
+        public int TamanhoDaPalavra() => _palavra.Tamanho;
+        public string ObterDica() => _palavra.Dica;
+        public void DefinirNomeJogador(string nome) => _placar.DefinirNomeDoJogador(nome);
     }
+
 }
