@@ -85,34 +85,34 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="db\forca0.png">
+    <Content Include="Imagens\forca0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="db\forca1.png">
+    <Content Include="Imagens\forca1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="db\forca2.png">
+    <Content Include="Imagens\forca2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="db\forca3.png">
+    <Content Include="Imagens\forca3.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="db\forca4.png">
+    <Content Include="Imagens\forca4.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="db\forca5.png">
+    <Content Include="Imagens\forca5.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="db\forca6.png">
+    <Content Include="Imagens\forca6.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="db\forca7.png">
+    <Content Include="Imagens\forca7.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="db\palavras.txt">
+    <Content Include="Imagens\palavras.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="db\trofeu.png">
+    <Content Include="Imagens\trofeu.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

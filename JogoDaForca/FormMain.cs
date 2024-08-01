@@ -8,12 +8,12 @@ namespace JogoDaForca
     public partial class FormMain : Form
     {
         private Forca _forca;
-
+        
         public FormMain()
         {
             InitializeComponent();
             HabilitarTeclado(false);
-            AtribuiLetras();
+            AtribuiMetodoAsTeclasDoTeclado();
         }
 
         private void ArmazenaNomeDoJogador()
@@ -22,7 +22,7 @@ namespace JogoDaForca
             _forca.DefinirNomeJogador(nomeJogador);
         }
 
-        private void AtribuiLetras()
+        private void AtribuiMetodoAsTeclasDoTeclado()
         {
             foreach (Control control in groupBox1.Controls)
             {
@@ -35,18 +35,21 @@ namespace JogoDaForca
         {
             if (sender is Button btn)
             {
-                bool acertou = _forca.ProcessarChute(btn.Text[0]);
+                char letra = btn.Text[0];
+                bool acertou = _forca.ProcessarChute(letra);
+
                 btn.Enabled = false;
                 btn.BackColor = acertou ? Color.Blue : Color.Red;
-
+                                                
                 AtualizaInterfaceDoJogo();
 
-                AnimacaoEnforcamento(_forca.ObterTentativasRestantes());
-
-                bool acertouPalavra = _forca.VerificarSeGanhou();
                 int tentativasRestantes = _forca.ObterTentativasRestantes();
 
-                if ( acertouPalavra || tentativasRestantes == 0)
+                AnimacaoEnforcamento(tentativasRestantes);
+
+                bool acertouPalavra = _forca.VerificarSeGanhou();
+
+                if (acertouPalavra || tentativasRestantes == 0)
                 {
                     DialogResult resultado = MessageBox.Show(
                         "Deseja continuar jogando?",
@@ -73,9 +76,12 @@ namespace JogoDaForca
 
         private void AtualizaInterfaceDoJogo()
         {
+            labelDica.Text = $"Dica: {_forca.ObterDica()}";
+            labelQuantasLetras.Text = $"Letras: {_forca.TamanhoDaPalavra().ToString()}";
+            labelTentativasRestantes.Text = $"Tentativas: {_forca.ObterTentativasRestantes()}";
+            LblJogador.Text = _forca.ObterNomeDoJogador();
             LblPontos.Text = _forca.ObterPontuacao().ToString();
             labelPalavra.Text = _forca.ObterPalavraMascarada();
-            labelTentativasRestantes.Text = "Tentativas: " + _forca.ObterTentativasRestantes();
         }
 
 
@@ -95,16 +101,18 @@ namespace JogoDaForca
         private void AnimacaoEnforcamento(int chances)
         {
             pictureBox1.Image = _forca.VerificarSeGanhou()
-                ? Image.FromFile("db/trofeu.png")
-                : Image.FromFile("db/forca" + chances + ".png");
+                ? Image.FromFile("Imagens/trofeu.png")
+                : Image.FromFile("Imagens/forca" + chances + ".png");
         }
 
 
         private void BtnNovoJogo_Click(object sender, EventArgs e)
         {
             _forca = new Forca();
-            ArmazenaNomeDoJogador();
+
             NovoJogo();
+
+            ArmazenaNomeDoJogador();
         }
 
 
@@ -112,14 +120,9 @@ namespace JogoDaForca
         {
             _forca.IniciarNovoJogo();
 
-            labelPalavra.Text = _forca.ObterPalavraMascarada();
-            labelDica.Text = $"Dica: {_forca.ObterDica()}";
-            labelQuantasLetras.Text = $"Letras: {_forca.TamanhoDaPalavra().ToString()}";
-            labelTentativasRestantes.Text = $"Tentativas: {_forca.ObterTentativasRestantes()}";
-            pictureBox1.Image = Image.FromFile("db/forca7.png");
+            pictureBox1.Image = Image.FromFile("Imagens/forca7.png");
 
-            LblJogador.Text = _forca.ObterNomeDoJogador();
-            LblPontos.Text = _forca.ObterPontuacao().ToString();
+            AtualizaInterfaceDoJogo();
 
             HabilitarTeclado(true);
         }
