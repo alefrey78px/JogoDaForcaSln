@@ -47,7 +47,7 @@ namespace JogoDaForca
 
                 bool acertouPalavra = _forca.VerificarSeGanhou();
 
-                AtualizaInterfaceDoJogo();
+                AtualizaInterface();
 
                 if (acertouPalavra || tentativasRestantes == 0)
                 {
@@ -58,23 +58,22 @@ namespace JogoDaForca
                         MessageBoxIcon.Information);
 
                     if (resultado == DialogResult.Yes)
-                    {
                         NovoJogo();
-                    }
                     else
-                    {
-                        HabilitarTeclado(false);
-                        _forca = null;
-                    }
-
+                        FinalizarJogo();
                 }
 
             }
 
         }
 
+        private void FinalizarJogo()
+        {
+            HabilitarTeclado(false);
+            _forca = null;
+        }
 
-        private void AtualizaInterfaceDoJogo()
+        private void AtualizaInterface()
         {
             // Obtendo os valores dos métodos da classe _forca
             string dica = _forca.ObterDica();
@@ -120,7 +119,7 @@ namespace JogoDaForca
 
             ArmazenaNomeDoJogador();
 
-            AtualizaInterfaceDoJogo();
+            AtualizaInterface();
         }
 
 
@@ -130,19 +129,17 @@ namespace JogoDaForca
 
             HabilitarTeclado(true);
 
-            AtualizaInterfaceDoJogo();
+            AtualizaInterface();
         }
 
 
         private void BtnSair_Click(object sender, EventArgs e)
         {
             DialogResult resultado = MessageBox.Show("Deseja realmente sair?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            
             if (resultado == DialogResult.Yes)
-            {
                 Close();
-            }
         }
     }
 
 }
-

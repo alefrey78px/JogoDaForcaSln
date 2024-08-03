@@ -408,14 +408,11 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.lblTrapaca);
             this.groupBox2.Controls.Add(this.labelPontos);
             this.groupBox2.Controls.Add(this.labelQuantasLetras);
             this.groupBox2.Controls.Add(this.labelJogador);
             this.groupBox2.Controls.Add(this.labelDica);
-            this.groupBox2.Controls.Add(this.LblPontos);
             this.groupBox2.Controls.Add(this.labelTentativasRestantes);
-            this.groupBox2.Controls.Add(this.LblJogador);
             this.groupBox2.Location = new System.Drawing.Point(12, 673);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
