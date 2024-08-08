@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using static JogoDaForca.Forca;
 
 namespace JogoDaForca
 {
@@ -63,19 +64,21 @@ namespace JogoDaForca
 
         private void VerificarFimDeJogo()
         {
-            int tentativasRestantes = _forca.ObterTentativasRestantes();
+            if (_forca.EstadoAtual != EstadoJogo.EmAndamento)
+            {
+                string mensagem = _forca.EstadoAtual == EstadoJogo.Ganhou
+                    ? "Parabéns! Você ganhou!"
+                    : "Que pena! Você perdeu.";
 
-            bool acertouPalavra = _forca.VerificarSeGanhou();
-
-            if (acertouPalavra || tentativasRestantes == 0)
-                PerguntarSeContinua();
+                PerguntarSeContinua(mensagem);
+            }
         }
 
-        void PerguntarSeContinua()
+        void PerguntarSeContinua(string mensagem)
         {
             DialogResult resultado = MessageBox.Show(
                     "Deseja continuar jogando?",
-                    "Jogo da Forca",
+                    mensagem,
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Information);
 
