@@ -8,7 +8,7 @@ namespace JogoDaForca
     public partial class FormMain : Form
     {
         private Forca _forca;
-        
+
         public FormMain()
         {
             InitializeComponent();
@@ -37,42 +37,58 @@ namespace JogoDaForca
         {
             if (sender is Button btn)
             {
-                char letra = btn.Text[0];
-                bool acertou = _forca.ProcessarChute(letra);
-
-                btn.Enabled = false;
-                btn.BackColor = acertou ? Color.Blue : Color.Red;
-                                                
-                int tentativasRestantes = _forca.ObterTentativasRestantes();
-
-                bool acertouPalavra = _forca.VerificarSeGanhou();
+                ProcessarLetraClicada(btn);
 
                 AtualizaInterfaceDoJogo();
 
-                if (acertouPalavra || tentativasRestantes == 0)
-                {
-                    DialogResult resultado = MessageBox.Show(
-                        "Deseja continuar jogando?",
-                        "Jogo da Forca",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Information);
-
-                    if (resultado == DialogResult.Yes)
-                    {
-                        NovoJogo();
-                    }
-                    else
-                    {
-                        HabilitarTeclado(false);
-                        _forca = null;
-                    }
-
-                }
+                VerificarFimDeJogo();
 
             }
 
         }
 
+        private void ProcessarLetraClicada(Button btn)
+        {
+            char letra = btn.Text[0];
+            bool acertou = _forca.ProcessarChute(letra);
+
+            AtualizarBotao(btn, acertou);
+        }
+
+        private void AtualizarBotao(Button btn, bool acertou)
+        {
+            btn.Enabled = false;
+            btn.BackColor = acertou ? Color.Blue : Color.Red;
+        }
+
+        private void VerificarFimDeJogo()
+        {
+            int tentativasRestantes = _forca.ObterTentativasRestantes();
+
+            bool acertouPalavra = _forca.VerificarSeGanhou();
+
+            if (acertouPalavra || tentativasRestantes == 0)
+                PerguntarSeContinua();
+        }
+
+        void PerguntarSeContinua()
+        {
+            DialogResult resultado = MessageBox.Show(
+                    "Deseja continuar jogando?",
+                    "Jogo da Forca",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Information);
+
+            if (resultado == DialogResult.Yes)
+            {
+                NovoJogo();
+            }
+            else
+            {
+                HabilitarTeclado(false);
+                _forca = null;
+            }
+        }
 
         private void AtualizaInterfaceDoJogo()
         {
@@ -110,7 +126,7 @@ namespace JogoDaForca
                 }
             }
         }
-        
+
 
         private void BtnNovoJogo_Click(object sender, EventArgs e)
         {
@@ -138,9 +154,7 @@ namespace JogoDaForca
         {
             DialogResult resultado = MessageBox.Show("Deseja realmente sair?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (resultado == DialogResult.Yes)
-            {
                 Close();
-            }
         }
     }
 
