@@ -10,7 +10,7 @@
         public Forca()
         {
             _repositorioPalavras = new RepositorioPalavras();
-            _placar = new Placar();
+            _placar = new Placar(new EstrategiaPontuacaoPadrao());
         }
 
         public void IniciarNovoJogo()

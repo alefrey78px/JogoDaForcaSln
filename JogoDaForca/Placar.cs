@@ -4,17 +4,19 @@ namespace JogoDaForca
 {
     public class Placar
     {
-        private const int PontosPorAcerto = 10;
-        private const int PontosPorErro = 5;
-
-        private string _jogador;
         private int _pontos;
+        private IEstrategiaPontuacao _estrategiaPontuacao;
+        private string _jogador;
 
-
-        public Placar()
+        public Placar(IEstrategiaPontuacao estrategiaPontuacao)
         {
-            _jogador = string.Empty;
+            _estrategiaPontuacao = estrategiaPontuacao;
             _pontos = 0;
+        }
+        public int CalculaPontuacao(bool acertouLetra)
+        {
+            _pontos = _estrategiaPontuacao.CalcularPontos(acertouLetra, _pontos);
+            return _pontos;
         }
 
 
@@ -27,20 +29,6 @@ namespace JogoDaForca
                 throw new ArgumentException("O nome do jogador não pode ser vazio ou somente espaços em branco.");
 
             _jogador = nome;
-        }
-
-        public int CalculaPontuacao(bool acertouLetra)
-        {
-            if (acertouLetra)
-            {
-                _pontos += PontosPorAcerto;
-                return _pontos;
-            }
-            else
-            {
-                _pontos -= PontosPorErro;
-                return _pontos;
-            }
         }
 
     }

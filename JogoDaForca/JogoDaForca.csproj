@@ -54,6 +54,8 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="EstrategiaPontuacaoPadrao.cs" />
+    <Compile Include="Interfaces\IEstrategiaDePontuacao.cs" />
     <Compile Include="PalavraComDica.cs" />
     <Compile Include="Placar.cs" />
     <Compile Include="Program.cs" />
