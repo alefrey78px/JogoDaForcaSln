@@ -13,12 +13,12 @@ namespace JogoDaForca
             _estrategiaPontuacao = estrategiaPontuacao;
             _pontos = 0;
         }
+
         public int CalculaPontuacao(bool acertouLetra)
         {
             _pontos = _estrategiaPontuacao.CalcularPontos(acertouLetra, _pontos);
             return _pontos;
         }
-
 
         public string ObterNomeDoJogador() => _jogador;
         public int ObterPontuacao() => _pontos;

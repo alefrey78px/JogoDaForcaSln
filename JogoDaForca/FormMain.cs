@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
-using static JogoDaForca.Forca;
+
 
 namespace JogoDaForca
 {
@@ -64,9 +64,9 @@ namespace JogoDaForca
 
         private void VerificarFimDeJogo()
         {
-            if (_forca.EstadoAtual != EstadoJogo.EmAndamento)
+            if (_forca.EstadoAtual != Forca.EstadoJogo.EmAndamento)
             {
-                string mensagem = _forca.EstadoAtual == EstadoJogo.Ganhou
+                string mensagem = _forca.EstadoAtual == Forca.EstadoJogo.Ganhou
                     ? "Parabéns! Você ganhou!"
                     : "Que pena! Você perdeu.";
 
@@ -133,8 +133,6 @@ namespace JogoDaForca
 
         private void BtnNovoJogo_Click(object sender, EventArgs e)
         {
-            _forca = new Forca();
-
             NovoJogo();
 
             ArmazenaNomeDoJogador();
@@ -145,6 +143,8 @@ namespace JogoDaForca
 
         private void NovoJogo()
         {
+            _forca = new Forca();
+
             _forca.IniciarNovoJogo();
 
             HabilitarTeclado(true);

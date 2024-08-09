@@ -24,7 +24,6 @@ namespace JogoDaForca
         public String PalavraMascarada { get; private set; } = string.Empty;
         public String PalavraNormalizada { get; private set; } = string.Empty;
 
-
         public bool ChecarPresencaDaLetraNaPalavra(char letra)
         {
             // Normaliza a letra digitada para remover acentos
@@ -42,7 +41,6 @@ namespace JogoDaForca
 
             return false;
         }
-
 
         private string AtualizarPalavraMascarada(char letra)
         {
@@ -63,7 +61,6 @@ namespace JogoDaForca
 
             return novaStringMascarada.ToString();
         }
-
 
         public override string ToString() => $"Palavra: {Palavra}";
        
