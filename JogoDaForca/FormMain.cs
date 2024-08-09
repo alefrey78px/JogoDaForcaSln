@@ -3,12 +3,13 @@ using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 
+
 namespace JogoDaForca
 {
     public partial class FormMain : Form
     {
         private Forca _forca;
-        
+
         public FormMain()
         {
             InitializeComponent();
@@ -37,43 +38,62 @@ namespace JogoDaForca
         {
             if (sender is Button btn)
             {
-                char letra = btn.Text[0];
-                bool acertou = _forca.ProcessarChute(letra);
+                ProcessarLetraClicada(btn);
 
-                btn.Enabled = false;
-                btn.BackColor = acertou ? Color.Blue : Color.Red;
-                                                
-                int tentativasRestantes = _forca.ObterTentativasRestantes();
+                AtualizaInterfaceDoJogo();
 
-                bool acertouPalavra = _forca.VerificarSeGanhou();
-
-                AtualizaInterface();
-
-                if (acertouPalavra || tentativasRestantes == 0)
-                {
-                    DialogResult resultado = MessageBox.Show(
-                        "Deseja continuar jogando?",
-                        "Jogo da Forca",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Information);
-
-                    if (resultado == DialogResult.Yes)
-                        NovoJogo();
-                    else
-                        FinalizarJogo();
-                }
+                VerificarFimDeJogo();
 
             }
 
         }
 
-        private void FinalizarJogo()
+        private void ProcessarLetraClicada(Button btn)
         {
-            HabilitarTeclado(false);
-            _forca = null;
+            char letra = btn.Text[0];
+            bool acertou = _forca.ProcessarChute(letra);
+
+            AtualizarBotao(btn, acertou);
         }
 
-        private void AtualizaInterface()
+        private void AtualizarBotao(Button btn, bool acertou)
+        {
+            btn.Enabled = false;
+            btn.BackColor = acertou ? Color.Blue : Color.Red;
+        }
+
+        private void VerificarFimDeJogo()
+        {
+            if (_forca.EstadoAtual != Forca.EstadoJogo.EmAndamento)
+            {
+                string mensagem = _forca.EstadoAtual == Forca.EstadoJogo.Ganhou
+                    ? "Parabéns! Você ganhou!"
+                    : "Que pena! Você perdeu.";
+
+                PerguntarSeContinua(mensagem);
+            }
+        }
+
+        void PerguntarSeContinua(string mensagem)
+        {
+            DialogResult resultado = MessageBox.Show(
+                    "Deseja continuar jogando?",
+                    mensagem,
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Information);
+
+            if (resultado == DialogResult.Yes)
+            {
+                NovoJogo();
+            }
+            else
+            {
+                HabilitarTeclado(false);
+                _forca = null;
+            }
+        }
+
+        private void AtualizaInterfaceDoJogo()
         {
             // Obtendo os valores dos métodos da classe _forca
             string dica = _forca.ObterDica();
@@ -109,37 +129,37 @@ namespace JogoDaForca
                 }
             }
         }
-        
+
 
         private void BtnNovoJogo_Click(object sender, EventArgs e)
         {
-            _forca = new Forca();
-
             NovoJogo();
 
             ArmazenaNomeDoJogador();
 
-            AtualizaInterface();
+            AtualizaInterfaceDoJogo();
         }
 
 
         private void NovoJogo()
         {
+            _forca = new Forca();
+
             _forca.IniciarNovoJogo();
 
             HabilitarTeclado(true);
 
-            AtualizaInterface();
+            AtualizaInterfaceDoJogo();
         }
 
 
         private void BtnSair_Click(object sender, EventArgs e)
         {
             DialogResult resultado = MessageBox.Show("Deseja realmente sair?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            
             if (resultado == DialogResult.Yes)
                 Close();
         }
     }
 
 }
+
