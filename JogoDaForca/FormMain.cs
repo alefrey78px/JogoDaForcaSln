@@ -64,14 +64,10 @@ namespace JogoDaForca
 
         private void VerificarFimDeJogo()
         {
-            if (_forca.EstadoAtual != Forca.EstadoJogo.EmAndamento)
-            {
-                string mensagem = _forca.EstadoAtual == Forca.EstadoJogo.Ganhou
-                    ? "Parabéns! Você ganhou!"
-                    : "Que pena! Você perdeu.";
-
-                PerguntarSeContinua(mensagem);
-            }
+            if (_forca.EstadoAtual == Forca.EstadoJogo.Ganhou)
+                PerguntarSeContinua("Parabéns! Você ganhou!");
+            else if (_forca.EstadoAtual == Forca.EstadoJogo.Perdeu)
+                PerguntarSeContinua("Que pena! Você perdeu.");
         }
 
         void PerguntarSeContinua(string mensagem)
