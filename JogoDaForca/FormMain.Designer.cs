@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelPalavra = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxTeclado = new System.Windows.Forms.GroupBox();
             this.btnZ = new System.Windows.Forms.Button();
             this.btnY = new System.Windows.Forms.Button();
             this.btnX = new System.Windows.Forms.Button();
@@ -56,69 +55,57 @@
             this.btnC = new System.Windows.Forms.Button();
             this.btnB = new System.Windows.Forms.Button();
             this.btnA = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            
+            this.groupBoxEstatisticas = new System.Windows.Forms.GroupBox();
             this.labelPontos = new System.Windows.Forms.Label();
             this.labelQuantasLetras = new System.Windows.Forms.Label();
             this.labelJogador = new System.Windows.Forms.Label();
             this.labelDica = new System.Windows.Forms.Label();
-            
             this.labelTentativasRestantes = new System.Windows.Forms.Label();
-           
             this.btnNovoJogo = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBoxForca = new System.Windows.Forms.PictureBox();
+            this.groupBoxPalavraOculta = new System.Windows.Forms.GroupBox();
+            this.groupBoxTeclado.SuspendLayout();
+            this.groupBoxEstatisticas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxForca)).BeginInit();
             this.SuspendLayout();
             // 
-            // labelPalavra
+            // groupBoxTeclado
             // 
-            this.labelPalavra.AutoSize = true;
-            this.labelPalavra.Font = new System.Drawing.Font("Courier New", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPalavra.Location = new System.Drawing.Point(3, 542);
-            this.labelPalavra.Name = "labelPalavra";
-            this.labelPalavra.Size = new System.Drawing.Size(559, 129);
-            this.labelPalavra.TabIndex = 0;
-            this.labelPalavra.Text = "PALAVRA";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnZ);
-            this.groupBox1.Controls.Add(this.btnY);
-            this.groupBox1.Controls.Add(this.btnX);
-            this.groupBox1.Controls.Add(this.btnW);
-            this.groupBox1.Controls.Add(this.btnV);
-            this.groupBox1.Controls.Add(this.btnU);
-            this.groupBox1.Controls.Add(this.btnT);
-            this.groupBox1.Controls.Add(this.btnS);
-            this.groupBox1.Controls.Add(this.btnR);
-            this.groupBox1.Controls.Add(this.btnQ);
-            this.groupBox1.Controls.Add(this.btnP);
-            this.groupBox1.Controls.Add(this.btnO);
-            this.groupBox1.Controls.Add(this.btnN);
-            this.groupBox1.Controls.Add(this.btnM);
-            this.groupBox1.Controls.Add(this.btnL);
-            this.groupBox1.Controls.Add(this.btnK);
-            this.groupBox1.Controls.Add(this.btnJ);
-            this.groupBox1.Controls.Add(this.btnI);
-            this.groupBox1.Controls.Add(this.btnH);
-            this.groupBox1.Controls.Add(this.btnG);
-            this.groupBox1.Controls.Add(this.btnF);
-            this.groupBox1.Controls.Add(this.btnE);
-            this.groupBox1.Controls.Add(this.btnD);
-            this.groupBox1.Controls.Add(this.btnC);
-            this.groupBox1.Controls.Add(this.btnB);
-            this.groupBox1.Controls.Add(this.btnA);
-            this.groupBox1.Location = new System.Drawing.Point(540, 54);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(613, 203);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Selecione a letra:";
+            this.groupBoxTeclado.Controls.Add(this.btnZ);
+            this.groupBoxTeclado.Controls.Add(this.btnY);
+            this.groupBoxTeclado.Controls.Add(this.btnX);
+            this.groupBoxTeclado.Controls.Add(this.btnW);
+            this.groupBoxTeclado.Controls.Add(this.btnV);
+            this.groupBoxTeclado.Controls.Add(this.btnU);
+            this.groupBoxTeclado.Controls.Add(this.btnT);
+            this.groupBoxTeclado.Controls.Add(this.btnS);
+            this.groupBoxTeclado.Controls.Add(this.btnR);
+            this.groupBoxTeclado.Controls.Add(this.btnQ);
+            this.groupBoxTeclado.Controls.Add(this.btnP);
+            this.groupBoxTeclado.Controls.Add(this.btnO);
+            this.groupBoxTeclado.Controls.Add(this.btnN);
+            this.groupBoxTeclado.Controls.Add(this.btnM);
+            this.groupBoxTeclado.Controls.Add(this.btnL);
+            this.groupBoxTeclado.Controls.Add(this.btnK);
+            this.groupBoxTeclado.Controls.Add(this.btnJ);
+            this.groupBoxTeclado.Controls.Add(this.btnI);
+            this.groupBoxTeclado.Controls.Add(this.btnH);
+            this.groupBoxTeclado.Controls.Add(this.btnG);
+            this.groupBoxTeclado.Controls.Add(this.btnF);
+            this.groupBoxTeclado.Controls.Add(this.btnE);
+            this.groupBoxTeclado.Controls.Add(this.btnD);
+            this.groupBoxTeclado.Controls.Add(this.btnC);
+            this.groupBoxTeclado.Controls.Add(this.btnB);
+            this.groupBoxTeclado.Controls.Add(this.btnA);
+            this.groupBoxTeclado.Location = new System.Drawing.Point(540, 54);
+            this.groupBoxTeclado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTeclado.Name = "groupBoxTeclado";
+            this.groupBoxTeclado.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTeclado.Size = new System.Drawing.Size(613, 203);
+            this.groupBoxTeclado.TabIndex = 1;
+            this.groupBoxTeclado.TabStop = false;
+            this.groupBoxTeclado.Text = "Selecione a letra:";
             // 
             // btnZ
             // 
@@ -406,25 +393,21 @@
             this.btnA.Text = "A";
             this.btnA.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // groupBoxEstatisticas
             // 
-            this.groupBox2.Controls.Add(this.labelPontos);
-            this.groupBox2.Controls.Add(this.labelQuantasLetras);
-            this.groupBox2.Controls.Add(this.labelJogador);
-            this.groupBox2.Controls.Add(this.labelDica);
-            this.groupBox2.Controls.Add(this.labelTentativasRestantes);
-            this.groupBox2.Location = new System.Drawing.Point(12, 673);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(1155, 103);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Estatísticas:";
-            // 
-            // lblTrapaca
-            // 
-
+            this.groupBoxEstatisticas.Controls.Add(this.labelPontos);
+            this.groupBoxEstatisticas.Controls.Add(this.labelQuantasLetras);
+            this.groupBoxEstatisticas.Controls.Add(this.labelJogador);
+            this.groupBoxEstatisticas.Controls.Add(this.labelDica);
+            this.groupBoxEstatisticas.Controls.Add(this.labelTentativasRestantes);
+            this.groupBoxEstatisticas.Location = new System.Drawing.Point(12, 711);
+            this.groupBoxEstatisticas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxEstatisticas.Name = "groupBoxEstatisticas";
+            this.groupBoxEstatisticas.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxEstatisticas.Size = new System.Drawing.Size(1401, 103);
+            this.groupBoxEstatisticas.TabIndex = 2;
+            this.groupBoxEstatisticas.TabStop = false;
+            this.groupBoxEstatisticas.Text = "Estatísticas:";
             // 
             // labelPontos
             // 
@@ -466,7 +449,6 @@
             this.labelDica.TabIndex = 10;
             this.labelDica.Text = "Dica";
             // 
-            // 
             // labelTentativasRestantes
             // 
             this.labelTentativasRestantes.AutoSize = true;
@@ -476,7 +458,6 @@
             this.labelTentativasRestantes.Size = new System.Drawing.Size(195, 25);
             this.labelTentativasRestantes.TabIndex = 8;
             this.labelTentativasRestantes.Text = "Tentativas Restantes";
-            // 
             // 
             // btnNovoJogo
             // 
@@ -500,43 +481,49 @@
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.BtnSair_Click);
             // 
-            // pictureBox1
+            // pictureBoxForca
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(25, 54);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(477, 485);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxForca.Location = new System.Drawing.Point(25, 54);
+            this.pictureBoxForca.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxForca.Name = "pictureBoxForca";
+            this.pictureBoxForca.Size = new System.Drawing.Size(477, 485);
+            this.pictureBoxForca.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxForca.TabIndex = 5;
+            this.pictureBoxForca.TabStop = false;
+            // 
+            // groupBoxPalavraOculta
+            // 
+            this.groupBoxPalavraOculta.Location = new System.Drawing.Point(25, 561);
+            this.groupBoxPalavraOculta.Name = "groupBoxPalavraOculta";
+            this.groupBoxPalavraOculta.Size = new System.Drawing.Size(1388, 145);
+            this.groupBoxPalavraOculta.TabIndex = 6;
+            this.groupBoxPalavraOculta.TabStop = false;
+            this.groupBoxPalavraOculta.Text = "Palavra a ser advinhada:";
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1203, 789);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(1425, 1020);
+            this.Controls.Add(this.groupBoxPalavraOculta);
+            this.Controls.Add(this.pictureBoxForca);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnNovoJogo);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.labelPalavra);
+            this.Controls.Add(this.groupBoxEstatisticas);
+            this.Controls.Add(this.groupBoxTeclado);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormMain";
             this.Text = "Jogo Da Forca";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBoxTeclado.ResumeLayout(false);
+            this.groupBoxEstatisticas.ResumeLayout(false);
+            this.groupBoxEstatisticas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxForca)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label labelPalavra;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxTeclado;
         private System.Windows.Forms.Button btnA;
         private System.Windows.Forms.Button btnZ;
         private System.Windows.Forms.Button btnY;
@@ -563,18 +550,19 @@
         private System.Windows.Forms.Button btnD;
         private System.Windows.Forms.Button btnC;
         private System.Windows.Forms.Button btnB;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBoxEstatisticas;
         private System.Windows.Forms.Label labelTentativasRestantes;
         private System.Windows.Forms.Label labelDica;
         private System.Windows.Forms.Button btnNovoJogo;
         private System.Windows.Forms.Label labelQuantasLetras;
         private System.Windows.Forms.Button btnSair;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxForca;
         private System.Windows.Forms.Label lblTrapaca;
         private System.Windows.Forms.Label LblJogador;
         private System.Windows.Forms.Label LblPontos;
         private System.Windows.Forms.Label labelPontos;
         private System.Windows.Forms.Label labelJogador;
+        private System.Windows.Forms.GroupBox groupBoxPalavraOculta;
     }
 }
 

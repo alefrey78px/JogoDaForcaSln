@@ -15,7 +15,7 @@ namespace JogoDaForca
             this.Dica = dica;
             this.Palavra = palavra.ToUpper();
             this.Tamanho = palavra.Count(char.IsLetter);
-            this.PalavraMascarada = new string('?', Tamanho);
+            this.PalavraMascarada = new string('_', Tamanho);
         }
 
         public String Dica { get; private set; } = string.Empty;
