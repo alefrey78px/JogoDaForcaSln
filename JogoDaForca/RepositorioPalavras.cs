@@ -101,11 +101,22 @@ namespace JogoDaForca
             };
         }
 
+        private int _ultimoNumeroSorteado = -1;
+
         public PalavraComDica Sorteia()
         {
             Random rand = new Random();
-            var numero = rand.Next(0, _palavras.Count);
-            return _palavras[numero];
+            int numeroSorteado;
+
+            do
+            {
+                numeroSorteado = rand.Next(_palavras.Count);
+            }
+            while (numeroSorteado == _ultimoNumeroSorteado);
+
+            _ultimoNumeroSorteado = numeroSorteado;
+
+            return _palavras[numeroSorteado];
         }
 
     }

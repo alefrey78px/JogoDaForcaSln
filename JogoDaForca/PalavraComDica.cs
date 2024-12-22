@@ -15,7 +15,7 @@ namespace JogoDaForca
             this.Dica = dica;
             this.Palavra = palavra.ToUpper();
             this.Tamanho = palavra.Count(char.IsLetter);
-            this.PalavraMascarada = new string('_', Tamanho);
+            this.PalavraMascarada = new string(Palavra.Select(c => c == '-' ? '-' : '_').ToArray());
         }
 
         public String Dica { get; private set; } = string.Empty;
@@ -47,7 +47,7 @@ namespace JogoDaForca
             char letraChutada = letra;
             StringBuilder novaStringMascarada = new StringBuilder(PalavraMascarada);
 
-            for (int i = 0; i < Tamanho; i++)
+            for (int i = 0; i < Palavra.Length; i++)
             {
                 // Normaliza a letra atual da palavra antes de comparar
                 char letraAtualNormalizada = Palavra[i].ToString().Normalize(NormalizationForm.FormD)[0];
