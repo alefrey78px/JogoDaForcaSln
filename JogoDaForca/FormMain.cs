@@ -149,9 +149,9 @@ namespace JogoDaForca
                 lbl.Size = new System.Drawing.Size(labelWidth, labelHeight); // Define o tamanho fixo do Label
                 lbl.Location = new System.Drawing.Point(xPosition, yPosition);
 
-                groupBoxPalavraOculta.Controls.Add(lbl);
-
                 xPosition += labelWidth + padding;
+
+                groupBoxPalavraOculta.Controls.Add(lbl);
             }
         }
 
